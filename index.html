@@ -21,37 +21,39 @@
         />
     </head>
     <body>
-        <header>
-            <h1>CrawKatt</h1>
-            <h2>
-                Modder de Minecraft, Programador en Rust y Administrador de
-                Sistemas
-            </h2>
-        </header>
-
         <nav>
             <ul>
-                <li><a href="#" data-section="sobre-mi">Sobre Mí</a></li>
+                <li><button data-section="sobre-mi">Sobre Mí</></li>
                 <li>
-                    <a href="#" data-section="conocimientos">Conocimientos</a>
+                    <button data-section="conocimientos">Conocimientos</a>
                 </li>
                 <li>
-                    <a href="#" data-section="proyectos-minecraft"
+                    <button data-section="proyectos-minecraft"
                         >Minecraft Mods</a
                     >
                 </li>
                 <li>
-                    <a href="#" data-section="proyectos-rust"
+                    <button data-section="proyectos-rust"
                         >Proyectos en Rust</a
                     >
                 </li>
-                <li><a href="#" data-section="logros">Logros</a></li>
-                <li><a href="#" data-section="contact">Contacto</a></li>
-                <li><a href="#" data-section="all">Mostrar Todos</a></li>
+                <li><button data-section="logros">Logros</button></li>
+                <li><button data-section="contact">Contacto</button></li>
+                <li><button data-section="all">Mostrar Todos</button></li>
             </ul>
         </nav>
-
-        <div class="container">
+        <header>
+            <div class="area_div">
+                <img src="/img/page_title.png" />
+            </div>
+            <div class="area_div title_container">
+                <h1 class="title_container">
+                    Modder de Minecraft, Programador en Rust y Administrador de
+                    Sistemas
+                </h1>
+            </div>
+        </header>
+        <main class="container">
             <section id="sobre-mi" class="section">
                 <h2>Sobre Mí</h2>
                 <p>
@@ -291,9 +293,9 @@
                     </a>
                 </div>
             </section>
-        </div>
+        </main>
 
-        <footer>&copy; 2023 CrawKatt. All rights reserved.</footer>
+        <footer><span>&copy; 2023 CrawKatt. All rights reserved.</span></footer>
 
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
