@@ -1,3 +1,7 @@
+/* ============================================= */
+/*            1. Reset y Estilos Globales        */
+/* ============================================= */
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -19,29 +23,42 @@ body {
     min-height: 100vh;
 }
 
+/* ============================================= */
+/*                 3. Layout General             */
+/* ============================================= */
+
+.wrapper {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* ============================================= */
+/*                  4. Header                    */
+/* ============================================= */
+
 header {
-    color: #fff;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     overflow: hidden;
-    grid-template-areas: "title";
-    justify-content: center;
+    padding: 20px;
 }
 
 header img {
     width: 100%;
 }
 
-/* Títulos y Header (la parte de arriba) */
-header h1 {
-    text-align: center;
-    text-wrap: pretty;
-    font-size: 36px;
-}
-
 .area_div {
-    grid-area: title;
     width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .title_container {
@@ -49,33 +66,64 @@ header h1 {
     flex-direction: column-reverse;
 }
 
-.title_container h1 {
-    font-size: 36px;
+.typewriter-container {
+    max-width: 80%;
+    margin: 0 auto;
     text-align: center;
+}
+
+.typewriter {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 36px;
+    width: 0;
+    vertical-align: bottom;
     margin: 0;
+    line-height: 1.2;
 }
 
-@keyframes pixelEntrance {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
+/* Animaciones para el efecto Typewriter */
+@keyframes typing {
+    from {
+        width: 0;
     }
-    50% {
-        opacity: 0.5;
-        transform: scale(1.1);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
+    to {
+        width: 100%;
     }
 }
 
-li,
-p,
-span,
-a {
-    text-wrap: pretty;
+.line1 {
+    animation: typing 4s steps(22, end) forwards;
+    animation-fill-mode: forwards;
 }
+
+.line2 {
+    animation: typing 4s steps(20, end) forwards;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+}
+
+.line3 {
+    animation: typing 4s steps(23, end) forwards;
+    animation-delay: 8s;
+    animation-fill-mode: forwards;
+}
+
+.line1,
+.line2 {
+    animation-fill-mode: forwards;
+}
+
+.line1::after,
+.line2::after {
+    content: "";
+    display: none;
+}
+
+/* ============================================= */
+/*                   5. Nav                      */
+/* ============================================= */
 
 nav {
     background-color: #2e2e2e;
@@ -92,7 +140,6 @@ nav ul {
 
 nav button {
     display: block;
-    /* font-family: "Press Start 2P", monospace; */
     background: transparent;
     border: none;
     padding: 15px 20px;
@@ -108,18 +155,9 @@ nav button.active {
     background-color: #55aa55;
 }
 
-.wrapper {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.container {
-    /* flex: 1 0 auto; */
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 20px;
-}
+/* ============================================= */
+/*                6. Secciones                   */
+/* ============================================= */
 
 .section {
     opacity: 1;
@@ -165,6 +203,25 @@ nav button.active {
     font-size: 16px;
     line-height: 1.6;
 }
+
+/* ============================================= */
+/*                7. Listas de Habilidades       */
+/* ============================================= */
+
+.skills-list {
+    list-style-type: square;
+    margin: 20px 0 0 40px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.skills-list li {
+    margin-bottom: 10px;
+}
+
+/* ============================================= */
+/*             8. Grids y Tarjetas               */
+/* ============================================= */
 
 .projects-grid {
     display: grid;
@@ -237,6 +294,7 @@ nav button.active {
     transform: scale(1.2);
 }
 
+/* Logros */
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -286,7 +344,10 @@ nav button.active {
     transform: scale(1.2);
 }
 
-/* Íconos SVG de GitHub, Twitter, Discord, etc */
+/* ============================================= */
+/*                  9. Iconos                    */
+/* ============================================= */
+
 .social-icons {
     display: flex;
     justify-content: center;
@@ -308,7 +369,10 @@ nav button.active {
     transform: scale(1.2);
 }
 
-/* Parte de abajo del sitio */
+/* ============================================= */
+/*                   10. Footer                  */
+/* ============================================= */
+
 footer {
     background-color: #2e2e2e;
     color: #fff;
@@ -317,6 +381,9 @@ footer {
     padding: 20px 0;
 }
 
+/* ==================================================== */
+/*             11. Media Queries (Responsive)           */
+/* ==================================================== */
 @media (max-width: 768px) {
     .section h2 {
         font-size: 24px;
@@ -337,24 +404,19 @@ footer {
     }
 }
 
+/* ============================================= */
+/*           12. Estilos de Enfoque              */
+/* ============================================= */
+
 button:focus {
     outline: 2px dashed #55aa55;
     outline-offset: 4px;
 }
 
-.skills-list {
-    list-style-type: square;
-    margin: 20px 0 0 40px;
-    font-size: 16px;
-    line-height: 1.6;
-}
+/* ============================================= */
+/*             13. Personalización UI            */
+/* ============================================= */
 
-.skills-list li {
-    margin-bottom: 10px;
-}
-
-/* Estilos para navegadores WebKit (Chrome, Safari, Edge) */
-/* Personalización del scrollbar para navegadores WebKit */
 ::-webkit-scrollbar {
     width: 16px;
 }
@@ -377,4 +439,23 @@ button:focus {
 html {
     scrollbar-width: thin;
     scrollbar-color: #4caf50 #2e2e2e;
+}
+
+/* ============================================= */
+/*               14. Animaciones                 */
+/* ============================================= */
+
+@keyframes pixelEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
