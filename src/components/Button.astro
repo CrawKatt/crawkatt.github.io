@@ -1,0 +1,86 @@
+---
+interface Props {
+  dataSection: string;
+}
+const { dataSection } = Astro.props
+const queryId = `${dataSection}-button-id`
+---
+
+<!-- <button data-section={dataSection} id={queryId} client:load><slot /></button> -->
+
+<!-- <script is:inline lang="ts" define:vars={{queryId}} defer> -->
+<script is:inline lang="ts">
+  const button = document.getElementById(queryId) as HTMLButtonElement | null;
+  const sections = document.querySelectorAll<HTMLElement>(".section");
+
+  function showSection(sectionId: string) {
+      sections.forEach((section) => {
+        if (sectionId === "all" || section.id === sectionId) {
+          section.classList.remove("hidden", "hide");
+        } else {
+          section.classList.add("hidden");
+          setTimeout(() => {
+            section.classList.add("hide");
+          }, 550);
+        }
+      });
+    }
+
+    if (button) {
+      button?.addEventListener("click", () => {
+        const sectionId = butt.getAttribute("data-section") as string;
+        showSection(sectionId);
+        console.log("sectionId");
+      });
+    }
+
+    // Click Handler del menú
+      // document.querySelector(`#${queryId}`)?.addEventListener("click", (event) => {
+      //   const sectionId = event.target.getAttribute("data-section");
+      //   showSection(sectionId);
+      //   console.log(sectionId);
+      // });
+
+  // function showSection(sectionId: string) {
+  //   sections.forEach((section) => {
+  //     sectionId === "all" || section.id === sectionId
+  //       ? section.classList.remove("hidden", "hide")
+  //       : (() => {
+  //           section.classList.add("hidden");
+  //           setTimeout(() => {
+  //             section.classList.add("hide");
+  //           }, 550);
+  //         })();
+  //   });
+  // }
+
+</script>
+<button data-section={dataSection} id={queryId}><slot/></button>
+<style>
+button {
+    display: block;
+    background: transparent;
+    border: none;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+    @media (max-width: 768px) {
+        border-top: 1px solid #444;
+        border-bottom: 1px solid #444;
+    }
+
+    &:focus {
+        outline: 2px dashed #55aa55;
+        outline-offset: 4px;
+    }
+
+    &:hover,
+    &.active {
+        background-color: #55aa55;
+    }
+}
+</style>
