@@ -10,7 +10,6 @@
 }
 
 body {
-    /* font-family: "Press Start 2P", cursive; */
     color: #fff;
     background-color: #3c3f41;
     background-image: url("/img/background.webp");
@@ -81,16 +80,6 @@ header img {
     vertical-align: bottom;
     margin: 0;
     line-height: 1.2;
-}
-
-/* Animaciones para el efecto Typewriter */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
 }
 
 .line1 {
@@ -444,6 +433,16 @@ html {
 /* ============================================= */
 /*               14. Animaciones                 */
 /* ============================================= */
+
+/* Animaciones para el efecto Typewriter */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
 
 @keyframes pixelEntrance {
     0% {
