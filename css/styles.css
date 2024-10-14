@@ -54,6 +54,20 @@ header img {
     width: 100%;
 }
 
+#title-image-container {
+    opacity: 1;
+    max-height: 500px;
+    overflow: hidden;
+    transition:
+        opacity 0.5s ease,
+        max-height 0.5s ease;
+}
+
+#title-image-container.hidden {
+    opacity: 0;
+    max-height: 0;
+}
+
 .area_div {
     width: 100%;
     display: flex;
@@ -66,9 +80,19 @@ header img {
 }
 
 .typewriter-container {
-    max-width: 80%;
-    margin: 0 auto;
+    opacity: 1;
+    max-height: 500px;
+    overflow: hidden;
     text-align: center;
+    margin: 0 auto;
+    transition:
+        opacity 0.5s ease,
+        max-height 0.5s ease;
+}
+
+.typewriter-container.hidden {
+    opacity: 0;
+    max-height: 0;
 }
 
 .typewriter {
@@ -80,6 +104,12 @@ header img {
     vertical-align: bottom;
     margin: 0;
     line-height: 1.2;
+}
+
+.hidden-h1 {
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
 }
 
 .line1 {
@@ -163,6 +193,7 @@ nav button.active {
 .section.hidden {
     opacity: 0;
     max-height: 0;
+    margin-bottom: 0;
 }
 
 .section.hide {
@@ -193,9 +224,9 @@ nav button.active {
     line-height: 1.6;
 }
 
-/* ============================================= */
-/*                7. Listas de Habilidades       */
-/* ============================================= */
+/* ================================================== */
+/*                7. Listas de Habilidades            */
+/* ================================================== */
 
 .skills-list {
     list-style-type: square;

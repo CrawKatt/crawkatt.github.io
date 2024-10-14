@@ -1,28 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll(".section");
-  const navLinks = document.querySelectorAll("nav button");
+  const navButtons = document.querySelectorAll("nav button");
+  const typewriterContainer = document.querySelector(".typewriter-container");
+  const titleImageContainer = document.querySelector("#title-image-container");
 
   function showSection(sectionId) {
     sections.forEach((section) => {
       if (sectionId === "all" || section.id === sectionId) {
-        section.classList.remove("hidden", "hide");
+        section.classList.remove("hidden");
       } else {
         section.classList.add("hidden");
-        setTimeout(() => {
-          section.classList.add("hide");
-        }, 550);
       }
     });
+
+    // Ocultar o mostrar la typewriter-container con animación
+    if (sectionId === "all") {
+      typewriterContainer.classList.remove("hidden");
+      titleImageContainer.classList.remove("hidden");
+    } else {
+      typewriterContainer.classList.add("hidden");
+      titleImageContainer.classList.add("hidden");
+    }
   }
 
-  // Click Handler del menú
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
+  navButtons.forEach((button) => {
+    button.addEventListener("click", function () {
       const sectionId = this.getAttribute("data-section");
       showSection(sectionId);
 
-      navLinks.forEach((btn) => btn.classList.remove("active"));
+      navButtons.forEach((btn) => btn.classList.remove("active"));
       this.classList.add("active");
     });
   });
