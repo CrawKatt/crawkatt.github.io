@@ -404,6 +404,7 @@ footer {
 /* ==================================================== */
 /*             11. Media Queries (Responsive)           */
 /* ==================================================== */
+/*
 @media (max-width: 768px) {
     .section h2 {
         font-size: 24px;
@@ -423,6 +424,7 @@ footer {
         height: 28px;
     }
 }
+*/
 
 /* ============================================= */
 /*           12. Estilos de Enfoque              */
@@ -487,5 +489,152 @@ html {
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+
+/* ... Tus estilos existentes ... */
+
+/* ============================================= */
+/*          Estilos para el botón de menú        */
+/* ============================================= */
+
+.menu-toggle {
+    display: none; /* Oculto por defecto */
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #fff;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+/* ============================================= */
+/*           Estilos para la sidebar             */
+/* ============================================= */
+
+.sidebar {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Ancho de la sidebar */
+    height: 100%;
+    background-color: #2e2e2e;
+    padding-top: 60px; /* Espacio para el botón de menú */
+    overflow-x: hidden;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%); /* Oculta la sidebar fuera de la pantalla */
+    z-index: 1000;
+}
+
+.sidebar.open {
+    display: block;
+    transform: translateX(0); /* Muestra la sidebar */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 8px 16px;
+}
+
+.sidebar li button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    text-align: left;
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.sidebar li button:hover,
+.sidebar li button.active {
+    background-color: #55aa55;
+}
+
+/* ============================================= */
+/*     Ajustes para móviles y escritorio         */
+/* ============================================= */
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Mostrar el botón de menú en móviles */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Ocultar el nav por defecto en móviles */
+    nav {
+        display: none;
+    }
+
+    /* Mostrar la sidebar cuando tenga la clase 'open' */
+    nav.sidebar.open {
+        display: block;
+    }
+
+    /* Ajustar el contenido principal para que no se desplace cuando la sidebar está abierta */
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    /* Opcional: Ajustar la posición del contenido para evitar superposición */
+    header, .container {
+        margin-top: 60px; /* Altura del botón de menú */
+    }
+}
+
+/* Estilos para dispositivos de escritorio */
+@media (min-width: 769px) {
+    /* Ocultar el botón de menú en escritorio */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Mostrar el nav tradicional */
+    nav {
+        display: block;
+    }
+
+    /* Asegurarse de que la sidebar no afecte en escritorio */
+    .sidebar {
+        position: static;
+        transform: none;
+        width: auto;
+        height: auto;
+        background: none;
+        padding: 0;
+        display: block;
+    }
+
+    .sidebar ul {
+        display: flex;
+        justify-content: center;
+        background: #2e2e2e;
+    }
+
+    .sidebar li {
+        padding: 0;
+    }
+
+    .sidebar li button {
+        background: transparent;
+        font-size: 16px;
+        padding: 15px 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .sidebar li button:hover,
+    .sidebar li button.active {
+        background-color: #55aa55;
     }
 }
