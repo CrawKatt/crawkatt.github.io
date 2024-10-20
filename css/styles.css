@@ -1,13 +1,15 @@
-/* Estilos Generales */
-html,
-body {
-    height: 100%;
-    margin: 0;
+/* ============================================= */
+/*            1. Reset y Estilos Globales        */
+/* ============================================= */
+
+* {
+    box-sizing: border-box;
     padding: 0;
+    margin: 0;
+    font-family: "Press Start 2P", cursive;
 }
 
 body {
-    font-family: "Press Start 2P", cursive;
     color: #fff;
     background-color: #3c3f41;
     background-image: url("/img/background.webp");
@@ -17,81 +19,12 @@ body {
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
-header {
-    background-image: url("/img/page_title.png");
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 120px 20px;
-    text-align: center;
-    position: relative;
-}
-
-header::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(60, 63, 65, 0.8);
-}
-
-/* Títulos y Header (la parte de arriba) */
-header h1 {
-    position: relative;
-    font-size: 36px;
-    z-index: 1;
-    animation: pixelEntrance 1s ease-out;
-}
-
-@keyframes pixelEntrance {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    50% {
-        opacity: 0.5;
-        transform: scale(1.1);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-nav {
-    background-color: #2e2e2e;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-nav li {
-    margin: 0;
-}
-
-nav a {
-    display: block;
-    padding: 15px 20px;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-nav a:hover,
-nav a.active {
-    background-color: #55aa55;
-}
+/* ============================================= */
+/*                 3. Layout General             */
+/* ============================================= */
 
 .wrapper {
     flex: 1 0 auto;
@@ -100,24 +33,116 @@ nav a.active {
 }
 
 .container {
-    flex: 1 0 auto;
     max-width: 1200px;
     margin: auto;
     padding: 40px 20px;
 }
 
-.section {
+/* ============================================= */
+/*                  4. Header                    */
+/* ============================================= */
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+header img {
+    width: 100%;
+}
+
+#title-image-container {
     opacity: 1;
-    max-height: 1000px;
+    max-height: 500px;
     overflow: hidden;
     transition:
         opacity 0.5s ease,
         max-height 0.5s ease;
 }
 
+#title-image-container.hidden {
+    opacity: 0;
+    max-height: 0;
+}
+
+.area_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.title_container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.typewriter-container {
+    opacity: 1;
+    max-height: 500px;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 auto;
+    transition:
+        opacity 0.5s ease,
+        max-height 0.5s ease;
+}
+
+.typewriter-container.hidden {
+    opacity: 0;
+    max-height: 0;
+}
+
+.typewriter {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 36px;
+    width: 0;
+    vertical-align: bottom;
+    margin: 0 auto;
+    line-height: 1.2;
+}
+
+.line1 {
+    animation: typing 4s steps(22, end) forwards;
+    animation-fill-mode: forwards;
+}
+
+.line2 {
+    animation: typing 4s steps(20, end) forwards;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+}
+
+.line3 {
+    animation: typing 4s steps(23, end) forwards;
+    animation-delay: 8s;
+    animation-fill-mode: forwards;
+}
+
+/* ============================================= */
+/*                6. Secciones                   */
+/* ============================================= */
+
+.section {
+    opacity: 1;
+    max-height: 1000px;
+    overflow: unset;
+    margin-bottom: 4rem;
+    box-sizing: content-box;
+    transition:
+        opacity 0.5s ease,
+        max-height 0.5s ease,
+        margin-top 0.5s ease;
+}
+
 .section.hidden {
     opacity: 0;
     max-height: 0;
+    margin-bottom: 0;
 }
 
 .section h2 {
@@ -144,9 +169,28 @@ nav a.active {
     line-height: 1.6;
 }
 
+/* ================================================== */
+/*                7. Listas de Habilidades            */
+/* ================================================== */
+
+.skills-list {
+    list-style-type: square;
+    margin: 20px 0 0 40px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.skills-list li {
+    margin-bottom: 10px;
+}
+
+/* ============================================= */
+/*             8. Grids y Tarjetas               */
+/* ============================================= */
+
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
@@ -170,7 +214,6 @@ nav a.active {
     transition: transform 0.3s;
 }
 
-/* Logo de los proyectos */
 .project-image {
     width: 128px;
     height: 128px;
@@ -193,7 +236,6 @@ nav a.active {
     color: #ddd;
 }
 
-/* Links a GitHub, Modrinth, CurseForge, etc */
 .project-links {
     display: flex;
     justify-content: center;
@@ -215,10 +257,11 @@ nav a.active {
     transform: scale(1.2);
 }
 
+/* Logros */
 .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
 }
 
 .achievement {
@@ -264,7 +307,10 @@ nav a.active {
     transform: scale(1.2);
 }
 
-/* Íconos SVG de GitHub, Twitter, Discord, etc */
+/* ============================================= */
+/*                  9. Iconos                    */
+/* ============================================= */
+
 .social-icons {
     display: flex;
     justify-content: center;
@@ -286,57 +332,313 @@ nav a.active {
     transform: scale(1.2);
 }
 
-/* Parte de abajo del sitio */
+/* ============================================= */
+/*                   10. Footer                  */
+/* ============================================= */
+
 footer {
-    flex-shrink: 0;
     background-color: #2e2e2e;
     color: #fff;
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
 }
 
+/* ============================================= */
+/*          Estilos para el botón de menú        */
+/* ============================================= */
+
+.menu-toggle {
+    display: none; /* Oculto por defecto */
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #fff;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+/* ============================================= */
+/*           Estilos para la sidebar             */
+/* ============================================= */
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #FF9900;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Ancho de la sidebar */
+    height: 100%;
+    background-color: #2e2e2e;
+    padding-top: 60px; /* Espacio para el botón de menú */
+    overflow-x: hidden;
+    transform: translateX(-100%); /* Oculta la sidebar fuera de la pantalla */
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    transform: translateX(0); /* Muestra la sidebar */
+    opacity: 1;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 0;
+}
+
+.sidebar li button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    text-align: left;
+    font-size: 18px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar li button:hover,
+.sidebar li button.active {
+    background-color: #55aa55;
+}
+
+.menu-toggle.hidden {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* ============================================= */
+/*     Ajustes para móviles y escritorio         */
+/* ============================================= */
+
+/* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 24px;
+    button[data-section="all"] {
+        display: none;
     }
 
+    .section {
+        opacity: 1;
+        max-height: none;
+        overflow: visible;
+        margin-bottom: 4rem;
+        box-sizing: content-box;
+        transition: opacity 0.5s ease, margin-top 0.5s ease;
+    }
+
+    /* Aumentar el margen inferior de la última tarjeta */
+    #logros .achievement:last-child {
+        margin-bottom: 60px; /* Reducir el margen inferior si es necesario */
+    }
+
+    /* Ajustar la sección de contacto */
+    #contact {
+        z-index: 1;
+        margin-top: 40px; /* Reducir el margen superior */
+        padding-bottom: 40px; /* Reducir el relleno inferior */
+        position: relative;
+    }
+
+    /* Si es necesario, agrega espacio adicional al footer */
+    footer {
+        background-color: #2e2e2e;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        clear: both;
+    }
+
+    .achievement {
+        margin: 0 auto;
+        margin-bottom: 40px;
+        padding: 10px;
+        width: 100%;
+        max-width: 95vw;
+        overflow: visible;
+    }
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Mostrar el botón de menú en móviles */
+    .menu-toggle {
+        display: block;
+    }
+
+    .sidebar {
+        display: block;
+    }
+
+    /* Ocultar el nav por defecto en móviles */
+    nav {
+        display: none;
+    }
+
+    /* Mostrar la sidebar cuando tenga la clase 'open' */
+    nav.sidebar.open {
+        display: block;
+    }
+
+    /* Asegurar que la lista de la sidebar se muestre en columna */
+    .sidebar ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    /* Ajustar los estilos de los botones en la sidebar */
+    .sidebar li {
+        padding: 0;
+    }
+
+    .sidebar li button {
+        width: 100%;
+        text-align: left;
+        padding: 15px 20px;
+        border-bottom: 1px solid #444;
+        font-size: 15px;
+        line-height: 18px;
+    }
+
+    /* Ajustar el contenido principal para que no se desplace cuando la sidebar está abierta */
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    /* Opcional: Ajustar la posición del contenido para evitar superposición */
+    header, .container {
+        margin-top: 60px; /* Altura del botón de menú */
+    }
+
+    /* Sobrescribir estilos de nav ul para móviles */
+    nav ul {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Ajustar el tamaño de fuente de los h1 en móviles y deshabilitar la animación */
+    .typewriter {
+        font-size: 24px; /* Reducir el tamaño de fuente */
+        white-space: normal; /* Permitir que el texto haga wrap */
+        width: auto;
+        overflow: visible; /* Asegurar que el texto completo sea visible */
+        animation: none; /* Deshabilitar la animación */
+    }
+
+    /* Ajustar el contenedor de los h1 */
+    .typewriter-container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    /* Ajustar el tamaño de los títulos de las secciones */
     .section h2 {
         font-size: 24px;
     }
 
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav a {
-        border-top: 1px solid #444;
-        border-bottom: 1px solid #444;
-    }
-
+    /* Ajustar el tamaño de los iconos */
     .platform-icon {
         width: 28px;
         height: 28px;
     }
 }
 
-a:focus {
+/* Estilos para dispositivos de escritorio */
+@media (min-width: 769px) {
+    .close-btn {
+        display: none; /* Ocultar el botón de cerrar en escritorio */
+    }
+
+    /* Ocultar el botón de menú en escritorio */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Mostrar el nav tradicional */
+    nav {
+        display: block;
+        background-color: #2e2e2e; /* Aseguramos el color de fondo */
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+
+    /* Asegurarse de que la sidebar no afecte en escritorio */
+    .sidebar {
+        position: static;
+        transform: none;
+        width: auto;
+        height: auto;
+        padding: 0;
+        display: block;
+        opacity: 1; /* Aseguramos que la opacidad sea 1 */
+    }
+
+    .sidebar ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        background-color: #2e2e2e; /* Fondo del ul */
+    }
+
+    .sidebar li {
+        padding: 0;
+    }
+
+    .sidebar li button {
+        background: transparent;
+        font-size: 16px;
+        padding: 15px 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .sidebar li button:hover,
+    .sidebar li button.active {
+        background-color: #55aa55;
+    }
+}
+
+/* ============================================= */
+/*           12. Estilos de Enfoque              */
+/* ============================================= */
+
+button:focus {
     outline: 2px dashed #55aa55;
     outline-offset: 4px;
 }
 
-.skills-list {
-    list-style-type: square;
-    margin: 20px 0 0 40px;
-    font-size: 16px;
-    line-height: 1.6;
-}
+/* ============================================= */
+/*             13. Personalización UI            */
+/* ============================================= */
 
-.skills-list li {
-    margin-bottom: 10px;
-}
-
-/* Estilos para navegadores WebKit (Chrome, Safari, Edge) */
-/* Personalización del scrollbar para navegadores WebKit */
 ::-webkit-scrollbar {
     width: 16px;
 }
@@ -359,4 +661,33 @@ a:focus {
 html {
     scrollbar-width: thin;
     scrollbar-color: #4caf50 #2e2e2e;
+}
+
+/* ============================================= */
+/*               14. Animaciones                 */
+/* ============================================= */
+
+/* Animaciones para el efecto Typewriter */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes pixelEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
