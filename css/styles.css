@@ -459,6 +459,10 @@ footer {
         display: block;
     }
 
+    .sidebar {
+        display: block;
+    }
+
     /* Ocultar el nav por defecto en móviles */
     nav {
         display: none;

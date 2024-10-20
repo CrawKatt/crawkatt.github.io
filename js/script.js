@@ -90,9 +90,4 @@ document.addEventListener("DOMContentLoaded", function () {
       body.classList.remove("sidebar-open");
     }
   });
-
-  function toggleSidebar() {
-    sidebar.classList.toggle("open");
-    body.classList.toggle("sidebar-open");
-  }
 });
