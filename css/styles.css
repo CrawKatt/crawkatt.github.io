@@ -130,7 +130,7 @@ header img {
 .section {
     opacity: 1;
     max-height: 1000px;
-    overflow: hidden;
+    overflow: unset;
     margin-bottom: 4rem;
     box-sizing: content-box;
     transition:
@@ -441,12 +441,44 @@ footer {
         display: none;
     }
 
+    .section {
+        opacity: 1;
+        max-height: none;
+        overflow: visible;
+        margin-bottom: 4rem;
+        box-sizing: content-box;
+        transition: opacity 0.5s ease, margin-top 0.5s ease;
+    }
+
+    /* Aumentar el margen inferior de la última tarjeta */
+    #logros .achievement:last-child {
+        margin-bottom: 60px; /* Reducir el margen inferior si es necesario */
+    }
+
+    /* Ajustar la sección de contacto */
+    #contact {
+        z-index: 1;
+        margin-top: 40px; /* Reducir el margen superior */
+        padding-bottom: 40px; /* Reducir el relleno inferior */
+        position: relative;
+    }
+
+    /* Si es necesario, agrega espacio adicional al footer */
+    footer {
+        background-color: #2e2e2e;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        clear: both;
+    }
+
     .achievement {
         margin: 0 auto;
+        margin-bottom: 40px;
         padding: 10px;
         width: 100%;
         max-width: 95vw;
-        min-height: 450px; /* Evita que la tarjeta se bugee quedando semi-oculta */
+        overflow: visible;
     }
 
     .achievements-grid {
