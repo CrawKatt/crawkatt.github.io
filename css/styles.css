@@ -432,15 +432,48 @@ footer {
 }
 
 /* ============================================= */
+/*            Estilos para el navbar             */
+/* ============================================= */
+
+.navbar {
+    display: none; /* Oculto por defecto */
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #2e2e2e;
+}
+
+.navbar li {
+    padding: 0;
+}
+
+.navbar li button {
+    background: transparent;
+    font-size: 16px;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.navbar li button:hover,
+.navbar li button.active {
+    background-color: #55aa55;
+}
+
+/* ============================================= */
 /*     Ajustes para móviles y escritorio         */
 /* ============================================= */
 
 /* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
-    button[data-section="all"] {
-        display: none;
-    }
-
     .section {
         opacity: 1;
         max-height: none;
@@ -450,12 +483,6 @@ footer {
         transition: opacity 0.5s ease, margin-top 0.5s ease;
     }
 
-    /* Aumentar el margen inferior de la última tarjeta */
-    #logros .achievement:last-child {
-        margin-bottom: 60px; /* Reducir el margen inferior si es necesario */
-    }
-
-    /* Ajustar la sección de contacto */
     #contact {
         z-index: 1;
         margin-top: 40px; /* Reducir el margen superior */
@@ -463,13 +490,13 @@ footer {
         position: relative;
     }
 
-    /* Si es necesario, agrega espacio adicional al footer */
     footer {
         background-color: #2e2e2e;
         color: #fff;
         display: flex;
         justify-content: center;
         clear: both;
+        position: relative;
     }
 
     .achievement {
@@ -481,9 +508,9 @@ footer {
         overflow: visible;
     }
 
-    .achievements-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    /* Ocultar el navbar en móviles */
+    .navbar {
+        display: none;
     }
 
     /* Mostrar el botón de menú en móviles */
@@ -532,7 +559,8 @@ footer {
     }
 
     /* Opcional: Ajustar la posición del contenido para evitar superposición */
-    header, .container {
+    header,
+    .container {
         margin-top: 60px; /* Altura del botón de menú */
     }
 
@@ -572,58 +600,52 @@ footer {
 
 /* Estilos para dispositivos de escritorio */
 @media (min-width: 769px) {
-    .close-btn {
-        display: none; /* Ocultar el botón de cerrar en escritorio */
+    .section {
+        opacity: 1;
+        max-height: 1000px;
+        overflow: unset;
+        margin-bottom: 4rem;
+        box-sizing: content-box;
+        transition:
+            opacity 0.5s ease,
+            max-height 0.5s ease,
+            margin-top 0.5s ease;
     }
 
-    /* Ocultar el botón de menú en escritorio */
-    .menu-toggle {
+    .section.hidden {
+        opacity: 0;
+        pointer-events: none;
+        height: 0;
+        margin-bottom: 0;
+        overflow: hidden;
+        transition: opacity 0.5s ease, height 0.5s 0.5s;
+    }
+
+    /* Mostrar el navbar en escritorio */
+    .navbar {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #2e2e2e;
+        z-index: 1000;
+    }
+
+    /* Ocultar el botón de menú y la sidebar en escritorio */
+    .menu-toggle,
+    .sidebar {
         display: none;
     }
 
-    /* Mostrar el nav tradicional */
-    nav {
-        display: block;
-        background-color: #2e2e2e; /* Aseguramos el color de fondo */
-        position: fixed;
-        width: 100%;
-        z-index: 1;
+    /* Ajustar el contenido principal para evitar que quede debajo del nav */
+    main,
+    header {
+        margin-top: 60px; /* Ajusta este valor según la altura real de tu nav */
     }
 
-    /* Asegurarse de que la sidebar no afecte en escritorio */
-    .sidebar {
-        position: static;
-        transform: none;
-        width: auto;
-        height: auto;
-        padding: 0;
-        display: block;
-        opacity: 1; /* Aseguramos que la opacidad sea 1 */
-    }
-
-    .sidebar ul {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        background-color: #2e2e2e; /* Fondo del ul */
-    }
-
-    .sidebar li {
-        padding: 0;
-    }
-
-    .sidebar li button {
-        background: transparent;
-        font-size: 16px;
-        padding: 15px 20px;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
-
-    .sidebar li button:hover,
-    .sidebar li button.active {
-        background-color: #55aa55;
-    }
+    /* Tus estilos existentes para escritorio */
+    /* ... */
 }
 
 /* ============================================= */
