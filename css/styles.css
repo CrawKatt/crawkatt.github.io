@@ -1,3 +1,8 @@
+/* Variables */
+:root {
+    --bg-color: #2e2e2e;
+    --scrollbar-color: #4caf50;
+}
 /* ============================================= */
 /*            1. Reset y Estilos Globales        */
 /* ============================================= */
@@ -11,11 +16,10 @@
 
 body {
     color: #fff;
-    background-color: #3c3f41;
-    background-image: url("/img/background.webp");
-    background-size: cover;
+    background-image: url("/img/dark_background_2.webp");
+    background-size: 10rem;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
@@ -36,6 +40,10 @@ body {
     max-width: 1200px;
     margin: auto;
     padding: 40px 20px;
+}
+
+.text_shadow {
+    text-shadow: 2px 2px 4px #000;
 }
 
 /* ============================================= */
@@ -190,14 +198,14 @@ header img {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 20px;
 }
 
 .project {
     position: relative;
     background-color: rgba(0, 0, 0, 0.6);
-    border: 4px solid #2e2e2e;
+    border: 4px solid var(--bg-color);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 10px #000;
@@ -260,13 +268,13 @@ header img {
 /* Logros */
 .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 2rem;
 }
 
 .achievement {
     background-color: rgba(0, 0, 0, 0.6);
-    border: 4px solid #2e2e2e;
+    border: 4px solid var(--bg-color);
     border-radius: 8px;
     padding: 20px;
     transition: transform 0.3s;
@@ -337,7 +345,7 @@ header img {
 /* ============================================= */
 
 footer {
-    background-color: #2e2e2e;
+    background-color: var(--bg-color);
     color: #fff;
     display: flex;
     justify-content: center;
@@ -354,11 +362,17 @@ footer {
     border: none;
     font-size: 28px;
     color: #fff;
-    position: fixed;
+    /* position: fixed; */
     top: 15px;
     left: 15px;
-    z-index: 1001;
     cursor: pointer;
+}
+
+.menu-container {
+    z-index: 1001;
+    padding: 1rem .5rem; /* Antes del `.` es un 0 por defecto */
+    width: 100%;
+    background: var(--bg-color);
 }
 
 /* ============================================= */
@@ -380,24 +394,29 @@ footer {
     color: #FF9900;
 }
 
-.sidebar {
+.sidebar_container {
     position: fixed;
     top: 0;
     left: 0;
+}
+
+.sidebar {
+    /* position: fixed; */
     width: 250px; /* Ancho de la sidebar */
     height: 100%;
-    background-color: #2e2e2e;
+    background-color: var(--bg-color);
     padding-top: 60px; /* Espacio para el botón de menú */
     overflow-x: hidden;
-    transform: translateX(-100%); /* Oculta la sidebar fuera de la pantalla */
-    opacity: 0;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    /* transform: translateX(-100%); */
+    /* transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; */
     z-index: 1000;
 }
 
-.sidebar.open {
+.sidebar_container.open {
     transform: translateX(0); /* Muestra la sidebar */
-    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 100vh;
 }
 
 .sidebar ul {
@@ -419,6 +438,7 @@ footer {
     font-size: 18px;
     padding: 15px 20px;
     border-bottom: 1px solid #444;
+    display: inherit;
 }
 
 .sidebar li button:hover,
@@ -445,7 +465,7 @@ footer {
     padding: 0;
     display: flex;
     justify-content: center;
-    background-color: #2e2e2e;
+    background-color: var(--bg-color);
 }
 
 .navbar li {
@@ -491,7 +511,7 @@ footer {
     }
 
     footer {
-        background-color: #2e2e2e;
+        background-color: var(--bg-color);
         color: #fff;
         display: flex;
         justify-content: center;
@@ -518,19 +538,19 @@ footer {
         display: block;
     }
 
-    .sidebar {
+    /* .sidebar {
         display: block;
-    }
+    } */
 
     /* Ocultar el nav por defecto en móviles */
-    nav {
+    /* nav {
         display: none;
-    }
+    } */
 
     /* Mostrar la sidebar cuando tenga la clase 'open' */
-    nav.sidebar.open {
+    /* nav.sidebar.open {
         display: block;
-    }
+    } */
 
     /* Asegurar que la lista de la sidebar se muestre en columna */
     .sidebar ul {
@@ -540,18 +560,19 @@ footer {
     }
 
     /* Ajustar los estilos de los botones en la sidebar */
-    .sidebar li {
+    /* .sidebar li {
         padding: 0;
-    }
+    } */
 
-    .sidebar li button {
+    /* .sidebar li button {
         width: 100%;
         text-align: left;
         padding: 15px 20px;
         border-bottom: 1px solid #444;
         font-size: 15px;
         line-height: 18px;
-    }
+        display: inherit;
+    } */
 
     /* Ajustar el contenido principal para que no se desplace cuando la sidebar está abierta */
     body.sidebar-open {
@@ -565,11 +586,11 @@ footer {
     }
 
     /* Sobrescribir estilos de nav ul para móviles */
-    nav ul {
+    /* nav ul {
         display: block;
         padding: 0;
         margin: 0;
-    }
+    } */
 
     /* Ajustar el tamaño de fuente de los h1 en móviles y deshabilitar la animación */
     .typewriter {
@@ -628,7 +649,7 @@ footer {
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #2e2e2e;
+        background-color: var(--bg-color);
         z-index: 1000;
     }
 
@@ -643,9 +664,6 @@ footer {
     header {
         margin-top: 60px; /* Ajusta este valor según la altura real de tu nav */
     }
-
-    /* Tus estilos existentes para escritorio */
-    /* ... */
 }
 
 /* ============================================= */
@@ -666,11 +684,11 @@ button:focus {
 }
 
 ::-webkit-scrollbar-track {
-    background: #2e2e2e;
+    background: var(--bg-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #4caf50, #8bc34a);
+    background: linear-gradient(45deg, var(--scrollbar-color), #8bc34a);
     border-radius: 8px;
     border: 2px solid #1b5e20;
 }
@@ -682,7 +700,7 @@ button:focus {
 /* Personalización del scrollbar para Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: #4caf50 #2e2e2e;
+    scrollbar-color: var(--scrollbar-color) var(--bg-color);
 }
 
 /* ============================================= */

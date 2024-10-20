@@ -1,28 +1,29 @@
-document.addEventListener("DOMContentLoaded", function () {
+'use strict'
+document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".section");
     const navButtons = document.querySelectorAll(".sidebar button, .navbar button");
     const typewriterContainer = document.querySelector(".typewriter-container");
     const titleImageContainer = document.querySelector("#title-image-container");
+    const sidebarContainer = document.querySelector(".sidebar_container");
     const menuToggle = document.querySelector(".menu-toggle");
-    const sidebar = document.querySelector("nav.sidebar");
     const closeBtn = document.querySelector(".close-btn");
     const body = document.body;
 
     // Función para detectar si es móvil
     function isMobile() {
-        return window.innerWidth <= 768;
+      return window.innerWidth <= 768;
     }
 
     // Función para mostrar u ocultar la sidebar
     function toggleSidebar() {
-        sidebar.classList.toggle("open");
-        body.classList.toggle("sidebar-open");
-        menuToggle.classList.toggle("hidden");
+      sidebarContainer.classList.toggle("open");
+      body.classList.toggle("sidebar-open");
+      menuToggle.classList.toggle("open");
     }
 
     // Evento para abrir/cerrar la sidebar al hacer clic en el botón de menú
     menuToggle.addEventListener("click", function () {
-        toggleSidebar();
+      toggleSidebar();
     });
 
     // Evento para cerrar la sidebar al hacer clic en el botón de cierre
