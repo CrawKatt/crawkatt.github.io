@@ -365,8 +365,22 @@ footer {
 /*           Estilos para la sidebar             */
 /* ============================================= */
 
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #FF9900;
+}
+
 .sidebar {
-    display: none; /* Oculto por defecto */
     position: fixed;
     top: 0;
     left: 0;
@@ -375,14 +389,15 @@ footer {
     background-color: #2e2e2e;
     padding-top: 60px; /* Espacio para el botón de menú */
     overflow-x: hidden;
-    transition: transform 0.3s ease;
     transform: translateX(-100%); /* Oculta la sidebar fuera de la pantalla */
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     z-index: 1000;
 }
 
 .sidebar.open {
-    display: block;
     transform: translateX(0); /* Muestra la sidebar */
+    opacity: 1;
 }
 
 .sidebar ul {
@@ -411,6 +426,10 @@ footer {
     background-color: #55aa55;
 }
 
+.menu-toggle.hidden {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
 
 /* ============================================= */
 /*     Ajustes para móviles y escritorio         */
@@ -418,6 +437,23 @@ footer {
 
 /* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
+    button[data-section="all"] {
+        display: none;
+    }
+
+    .achievement {
+        margin: 0 auto;
+        padding: 10px;
+        width: 100%;
+        max-width: 95vw;
+        min-height: 450px; /* Evita que la tarjeta se bugee quedando semi-oculta */
+    }
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
     /* Mostrar el botón de menú en móviles */
     .menu-toggle {
         display: block;
@@ -450,6 +486,8 @@ footer {
         text-align: left;
         padding: 15px 20px;
         border-bottom: 1px solid #444;
+        font-size: 15px;
+        line-height: 18px;
     }
 
     /* Ajustar el contenido principal para que no se desplace cuando la sidebar está abierta */
@@ -469,11 +507,13 @@ footer {
         margin: 0;
     }
 
-    /* Ajustar el tamaño de fuente de los h1 en móviles */
+    /* Ajustar el tamaño de fuente de los h1 en móviles y deshabilitar la animación */
     .typewriter {
         font-size: 24px; /* Reducir el tamaño de fuente */
         white-space: normal; /* Permitir que el texto haga wrap */
         width: auto;
+        overflow: visible; /* Asegurar que el texto completo sea visible */
+        animation: none; /* Deshabilitar la animación */
     }
 
     /* Ajustar el contenedor de los h1 */
@@ -496,6 +536,10 @@ footer {
 
 /* Estilos para dispositivos de escritorio */
 @media (min-width: 769px) {
+    .close-btn {
+        display: none; /* Ocultar el botón de cerrar en escritorio */
+    }
+
     /* Ocultar el botón de menú en escritorio */
     .menu-toggle {
         display: none;
@@ -518,6 +562,7 @@ footer {
         height: auto;
         padding: 0;
         display: block;
+        opacity: 1; /* Aseguramos que la opacidad sea 1 */
     }
 
     .sidebar ul {
