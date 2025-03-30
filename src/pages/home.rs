@@ -1,20 +1,22 @@
-use crate::components::{ContactForm, DiscordIcon, GithubIcon, MailIcon, ProjectCard, SkillCard, ThemeToggle, XIcon};
+use crate::components::{ContactForm, DiscordIcon, GithubIcon, MailIcon, MenuIcon, ProjectCard, SkillCard, ThemeToggle, XIcon};
 use leptos::prelude::*;
 
 #[component]
 pub fn Home() -> impl IntoView {
+    let (show_mobile_menu, set_show_mobile_menu) = signal(false);
+
     view! {
         <div class="min-h-screen bg-background">
             <header class="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-                <div class="container flex h-16 items-center justify-between">
+                <div class="container flex h-16 items-center justify-between px-4 sm:px-6">
                     <div class="flex items-center gap-2">
-                        <a href="/" class="font-bold text-xl">
+                        <a href="/" class="font-bold text-lg sm:text-xl">
                             "Portafolio"
                         </a>
                     </div>
 
-                    <div class="flex items-center gap-6">
-                        <nav class="flex items-center gap-6">
+                    <div class="hidden md:flex items-center gap-6">
+                        <nav class="flex items-center gap-4 md:gap-6">
                             <a href="#about" class="text-sm font-medium hover:text-primary transition-colors">
                                 "Acerca de"
                             </a>
@@ -30,24 +32,46 @@ pub fn Home() -> impl IntoView {
                         </nav>
                         <ThemeToggle />
                     </div>
+
+                    <button
+                        class="md:hidden p-2"
+                        on:click=move |_| set_show_mobile_menu.update(|v| *v = !*v)
+                    >
+                        <MenuIcon/>
+                    </button>
                 </div>
+
+                <Show when=move || show_mobile_menu.get()>
+                    <div class="md:hidden absolute w-full bg-background border-b">
+                        <nav class="flex flex-col p-4 gap-4">
+                            <a href="#about" class="text-sm font-medium hover:text-primary">"Acerca de"</a>
+                            <a href="#projects" class="text-sm font-medium hover:text-primary">"Proyectos"</a>
+                            <a href="#skills" class="text-sm font-medium hover:text-primary">"Habilidades"</a>
+                            <a href="#contact" class="text-sm font-medium hover:text-primary">"Contacto"</a>
+                            <div class="pt-4 border-t flex justify-center">
+                                <ThemeToggle />
+                            </div>
+                        </nav>
+                    </div>
+                </Show>
             </header>
-            <main class="container py-12">
-                <section class="py-20 md:py-32 flex flex-col items-center text-center">
-                    <div class="relative w-32 h-32 mb-8 rounded-full overflow-hidden border-4 border-primary">
+
+            <main class="container py-8 px-4 sm:px-6">
+                <section class="py-12 md:py-20 flex flex-col items-center text-center">
+                    <div class="relative w-24 h-24 md:w-32 md:h-32 mb-6 md:mb-8 rounded-full overflow-hidden border-4 border-primary">
                         <img
                             src="/public/profile.png"
                             alt="Profile"
                             class="object-cover w-full h-full"
                         />
                     </div>
-                    <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+                    <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight mb-4">
                         "CrawKatt"
                     </h1>
-                    <p class="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl">
+                    <p class="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 max-w-2xl">
                         "Minecraft Modder & Rust Developer"
                     </p>
-                    <div class="flex gap-4">
+                    <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                         <a
                             href="#contact"
                             class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 bg-primary text-primary-foreground"
@@ -62,23 +86,24 @@ pub fn Home() -> impl IntoView {
                         </a>
                     </div>
                 </section>
-                <section id="about" class="py-16 scroll-mt-20">
-                    <h2 class="text-3xl font-bold mb-8 text-center">"Sobre Mí"</h2>
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <p class="text-lg mb-4">
+
+                <section id="about" class="py-12 md:py-16 scroll-mt-20">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">"Sobre Mí"</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                        <div class="order-2 md:order-1">
+                            <p class="text-base md:text-lg mb-4">
                                 "¡Hola! Soy un desarrollador apasionado con experiencia en la creación de mods para Minecraft y programación en Rust."
                             </p>
-                            <p class="text-lg mb-4">
+                            <p class="text-base md:text-lg mb-4">
                                 "Desde que era niño siempre me entusiasmé por la computación y la tecnología, crecí estudiando por mi cuenta siguiendo
                                 guías, foros y tutoriales en YouTube. Cursé múltiples cursos de Udemy sobre programación y Modding para Minecraft."
                             </p>
-                            <p class="text-lg">
+                            <p class="text-base md:text-lg">
                                 "Me dedico principalmente al Modding para Minecraft, BackEnd y Administración de Sistemas.
                                 Soy un apasionado usuario de Arch Linux y me encanta aprender y desarrollar proyectos únicos para los usuarios."
                             </p>
                         </div>
-                        <div class="relative h-80 rounded-lg overflow-hidden">
+                        <div class="relative h-60 md:h-80 rounded-lg overflow-hidden order-1 md:order-2">
                             <img
                                 src="/public/about.png"
                                 alt="About me"
@@ -87,9 +112,10 @@ pub fn Home() -> impl IntoView {
                         </div>
                     </div>
                 </section>
-                <section id="projects" class="py-16 scroll-mt-20">
-                    <h2 class="text-3xl font-bold mb-8 text-center">"My Projects"</h2>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <section id="projects" class="py-12 md:py-16 scroll-mt-20">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">"My Projects"</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                         <ProjectCard
                             title="Meica Mod".to_string()
                             description="Minecraft Mod inspired in Meica05 Vtuber".to_string()
@@ -107,9 +133,10 @@ pub fn Home() -> impl IntoView {
                         />
                     </div>
                 </section>
-                <section id="skills" class="py-16 scroll-mt-20">
-                    <h2 class="text-3xl font-bold mb-8 text-center">"Skills"</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+                <section id="skills" class="py-12 md:py-16 scroll-mt-20">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">"Skills"</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
                         <SkillCard name="Rust".to_string() />
                         <SkillCard name="Leptos".to_string() />
                         <SkillCard name="TailwindCSS".to_string() />
@@ -120,10 +147,11 @@ pub fn Home() -> impl IntoView {
                         <SkillCard name="C#".to_string() />
                     </div>
                 </section>
-                <section id="contact" class="py-16 scroll-mt-20">
-                    <h2 class="text-3xl font-bold mb-8 text-center">"Get In Touch"</h2>
-                    <div class="max-w-md mx-auto">
-                        <div class="flex justify-center gap-6 mb-8">
+
+                <section id="contact" class="py-12 md:py-16 scroll-mt-20">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">"Get In Touch"</h2>
+                    <div class="w-full md:max-w-md mx-auto">
+                        <div class="flex justify-center gap-4 mb-6">
                             <a
                                 href="https://github.com/CrawKatt"
                                 target="_blank"
@@ -163,8 +191,9 @@ pub fn Home() -> impl IntoView {
                     </div>
                 </section>
             </main>
+
             <footer class="border-t py-6">
-                <div class="container flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between">
+                <div class="container flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between px-4 sm:px-6">
                     <p class="text-center text-sm leading-loose text-muted-foreground md:text-left">
                         {"© 2025"}{" CrawKatt. All rights reserved."}
                     </p>
