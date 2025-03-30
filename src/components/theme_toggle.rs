@@ -1,28 +1,43 @@
 use leptos::prelude::*;
-
-use crate::components::*;
+use crate::components::{MoonIcon, SunIcon};
 
 #[component]
 pub fn ThemeToggle() -> impl IntoView {
     let (is_dark, set_is_dark) = signal(false);
-    Effect::new(move |_| {
-        let document = window().document().unwrap();
-        let html = document.document_element().unwrap();
-        let has_dark_class = html.class_list().contains("dark");
 
-        set_is_dark.set(has_dark_class);
+    // Leer preferencia del usuario en localStorage
+    Effect::new(move |_| {
+        let window = window();
+        let document = window.document().unwrap();
+        let html = document.document_element().unwrap();
+
+        let stored_theme = window.local_storage().unwrap().unwrap().get_item("theme").unwrap();
+        let prefers_dark = window.match_media("(prefers-color-scheme: dark)").unwrap().unwrap().matches();
+
+        let dark_mode = stored_theme.as_deref() == Some("dark") || (stored_theme.is_none() && prefers_dark);
+        set_is_dark.set(dark_mode);
+
+        if dark_mode {
+            html.class_list().add_1("dark").unwrap();
+        } else {
+            html.class_list().remove_1("dark").unwrap();
+        }
     });
 
     let toggle_theme = move |_| {
-        set_is_dark.update(|dark| *dark = !*dark);
-
-        let document = window().document().unwrap();
+        let window = window();
+        let document = window.document().unwrap();
         let html = document.document_element().unwrap();
 
+        let new_theme = if is_dark.get() { "light" } else { "dark" };
+        window.local_storage().unwrap().unwrap().set_item("theme", new_theme).unwrap();
+
+        set_is_dark.update(|dark| *dark = !*dark);
+
         if is_dark.get() {
-            let _ = html.class_list().add_1("dark");
+            html.class_list().add_1("dark").unwrap();
         } else {
-            let _ = html.class_list().remove_1("dark");
+            html.class_list().remove_1("dark").unwrap();
         }
     };
 
