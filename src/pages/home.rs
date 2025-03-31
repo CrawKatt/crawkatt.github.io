@@ -11,7 +11,7 @@ pub fn Home() -> impl IntoView {
                 <div class="container flex h-16 items-center justify-between px-4 sm:px-6">
                     <div class="flex items-center gap-2">
                         <a href="/" class="font-bold text-lg sm:text-xl">
-                            "Portafolio"
+                            "CrawKatt"
                         </a>
                     </div>
 
@@ -28,6 +28,9 @@ pub fn Home() -> impl IntoView {
                             </a>
                             <a href="#contact" class="text-sm font-medium hover:text-primary transition-colors">
                                 "Contacto"
+                            </a>
+                            <a href="/contributions" class="text-sm font-medium hover:text-primary transition-colors">
+                                "Open Source"
                             </a>
                         </nav>
                         <ThemeToggle />
@@ -57,33 +60,46 @@ pub fn Home() -> impl IntoView {
             </header>
 
             <main class="container py-8 px-4 sm:px-6">
-                <section class="py-12 md:py-20 flex flex-col items-center text-center">
-                    <div class="relative w-24 h-24 md:w-32 md:h-32 mb-6 md:mb-8 rounded-full overflow-hidden border-4 border-primary">
-                        <img
-                            src="/public/profile.png"
-                            alt="Profile"
-                            class="object-cover w-full h-full"
-                        />
-                    </div>
-                    <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight mb-4">
-                        "CrawKatt"
-                    </h1>
-                    <p class="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 max-w-2xl">
-                        "Minecraft Modder & Rust Developer"
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                        <a
-                            href="#contact"
-                            class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 bg-primary text-primary-foreground"
-                        >
-                            "Contact Me"
-                        </a>
-                        <a
-                            href="#projects"
-                            class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 border border-input bg-background"
-                        >
-                            "Ver Proyectos"
-                        </a>
+                <section class="relative py-12 md:py-20 min-h-[500px] flex items-center justify-center overflow-hidden">
+                    <video
+                        autoplay
+                        muted
+                        loop
+                        class="absolute inset-0 w-full h-full object-cover blur-lg z-0"
+                    >
+                        <source src="/public/background-video.mp4" type="video/mp4"/>
+                        "Tu navegador no soporta videos HTML5."
+                    </video>
+                    <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+                    <div class="relative z-20 flex flex-col items-center text-center">
+                        <div class="relative w-24 h-24 md:w-32 md:h-32 mb-6 md:mb-8 rounded-full overflow-hidden border-4 border-primary">
+                            <img
+                                src="/public/profile.png"
+                                alt="Profile"
+                                class="object-cover w-full h-full"
+                            />
+                        </div>
+                        <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight mb-4 text-white">
+                            "CrawKatt"
+                        </h1>
+                        <p class="text-lg md:text-xl lg:text-2xl mb-6 max-w-2xl text-white/80">
+                            "Minecraft Modder & Rust Developer"
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                            <a
+                                href="#contact"
+                                class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 bg-primary text-white hover:bg-primary/90 transition-colors"
+                            >
+                                "Contact Me"
+                            </a>
+                            <a
+                                href="#projects"
+                                class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm border border-white/30 transition-all"
+                            >
+                                "Ver Proyectos"
+                            </a>
+                        </div>
                     </div>
                 </section>
 
@@ -120,16 +136,22 @@ pub fn Home() -> impl IntoView {
                             title="Meica Mod".to_string()
                             description="Minecraft Mod inspired in Meica05 Vtuber".to_string()
                             image="/public/meica_mod.png".to_string()
+                            demo="https://www.curseforge.com/minecraft/mc-mods/meica-mod".to_string()
+                            source_code="https://github.com/CrawKatt/meica_mod".to_string()
                         />
                         <ProjectCard
                             title="Leafy".to_string()
                             description="A Discord Bot developed in Rust".to_string()
                             image="/public/leafy.png".to_string()
+                            demo="#".to_string()
+                            source_code="https://github.com/CrawKatt/leafy".to_string()
                         />
                         <ProjectCard
                             title="Leafy Dashboard".to_string()
                             description="A Leptos and Actix Powered FullStack Web Dashboard for config Leafy".to_string()
                             image="/public/leafy.png".to_string()
+                            demo="#".to_string()
+                            source_code="https://github.com/CrawKatt/leafy_dashboard".to_string()
                         />
                     </div>
                 </section>
