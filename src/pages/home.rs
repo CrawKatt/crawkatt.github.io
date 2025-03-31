@@ -67,7 +67,7 @@ pub fn Home() -> impl IntoView {
                         loop
                         class="absolute inset-0 w-full h-full object-cover blur-lg z-0"
                     >
-                        <source src="/public/background-video.mp4" type="video/mp4"/>
+                        <source src="/public/background-video.webm" type="video/webm"/>
                         "Tu navegador no soporta videos HTML5."
                     </video>
                     <div class="absolute inset-0 bg-black/50 z-10"></div>
