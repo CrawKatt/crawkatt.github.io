@@ -11,11 +11,7 @@ pub fn ProjectCard(
     view! {
         <div class="overflow-hidden rounded-lg border bg-card text-card-foreground shadow">
             <div class="relative h-48">
-                <img 
-                    src=image
-                    alt=title.clone()
-                    class="object-cover w-full h-full"
-                />
+                <img src=image alt=title.clone() class="object-cover w-full h-full" />
             </div>
             <div class="p-6">
                 <h3 class="text-lg font-semibold">{title}</h3>
@@ -25,13 +21,13 @@ pub fn ProjectCard(
                     and TailwindCSS for styling."
                 </p>
                 <div class="flex gap-2">
-                    <a 
+                    <a
                         href=demo
                         class="inline-flex items-center justify-center rounded-md text-sm font-medium h-9 px-3 border border-input bg-background"
                     >
                         "Demo"
                     </a>
-                    <a 
+                    <a
                         href=source_code
                         class="inline-flex items-center justify-center rounded-md text-sm font-medium h-9 px-3 bg-primary text-primary-foreground"
                     >

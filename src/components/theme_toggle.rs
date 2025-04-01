@@ -47,10 +47,7 @@ pub fn ThemeToggle() -> impl IntoView {
             on:click=toggle_theme
             aria-label="Toggle theme"
         >
-            <Show
-                when=move || is_dark.get()
-                fallback=|| view! { <SunIcon /> }
-            >
+            <Show when=move || is_dark.get() fallback=|| view! { <SunIcon /> }>
                 <MoonIcon />
             </Show>
         </button>

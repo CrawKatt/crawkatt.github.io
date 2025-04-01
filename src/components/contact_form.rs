@@ -6,7 +6,7 @@ pub fn ContactForm() -> impl IntoView {
     let (name, set_name) = signal(String::new());
     let (email, set_email) = signal(String::new());
     let (message, set_message) = signal(String::new());
-    
+
     let handle_submit = move |ev: ev::SubmitEvent| {
         ev.prevent_default();
         logging::log!("Form submitted: {}, {}, {}", name.get(), email.get(), message.get());
@@ -63,8 +63,8 @@ pub fn ContactForm() -> impl IntoView {
                             prop:value=message
                         />
                     </div>
-                    <button 
-                        type="submit" 
+                    <button
+                        type="submit"
                         class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 w-full bg-primary text-primary-foreground"
                     >
                         "Enviar Mensaje"

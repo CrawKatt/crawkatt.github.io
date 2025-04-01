@@ -28,19 +28,34 @@ pub fn OSSContributions() -> impl IntoView {
 
                     <div class="hidden md:flex items-center gap-6">
                         <nav class="flex items-center gap-4 md:gap-6">
-                            <a href="#about" class="text-sm font-medium hover:text-primary transition-colors">
+                            <a
+                                href="#about"
+                                class="text-sm font-medium hover:text-primary transition-colors"
+                            >
                                 "Acerca de"
                             </a>
-                            <a href="#projects" class="text-sm font-medium hover:text-primary transition-colors">
+                            <a
+                                href="#projects"
+                                class="text-sm font-medium hover:text-primary transition-colors"
+                            >
                                 "Proyectos"
                             </a>
-                            <a href="#skills" class="text-sm font-medium hover:text-primary transition-colors">
+                            <a
+                                href="#skills"
+                                class="text-sm font-medium hover:text-primary transition-colors"
+                            >
                                 "Habilidades"
                             </a>
-                            <a href="#contact" class="text-sm font-medium hover:text-primary transition-colors">
+                            <a
+                                href="#contact"
+                                class="text-sm font-medium hover:text-primary transition-colors"
+                            >
                                 "Contacto"
                             </a>
-                            <a href="/oss" class="text-sm font-medium hover:text-primary transition-colors">
+                            <a
+                                href="/oss"
+                                class="text-sm font-medium hover:text-primary transition-colors"
+                            >
                                 "Open Source"
                             </a>
                         </nav>
@@ -51,17 +66,25 @@ pub fn OSSContributions() -> impl IntoView {
                         class="md:hidden p-2"
                         on:click=move |_| set_show_mobile_menu.update(|v| *v = !*v)
                     >
-                        <MenuIcon/>
+                        <MenuIcon />
                     </button>
                 </div>
 
                 <Show when=move || show_mobile_menu.get()>
                     <div class="md:hidden absolute w-full bg-background border-b">
                         <nav class="flex flex-col p-4 gap-4">
-                            <a href="#about" class="text-sm font-medium hover:text-primary">"Acerca de"</a>
-                            <a href="#projects" class="text-sm font-medium hover:text-primary">"Proyectos"</a>
-                            <a href="#skills" class="text-sm font-medium hover:text-primary">"Habilidades"</a>
-                            <a href="#contact" class="text-sm font-medium hover:text-primary">"Contacto"</a>
+                            <a href="#about" class="text-sm font-medium hover:text-primary">
+                                "Acerca de"
+                            </a>
+                            <a href="#projects" class="text-sm font-medium hover:text-primary">
+                                "Proyectos"
+                            </a>
+                            <a href="#skills" class="text-sm font-medium hover:text-primary">
+                                "Habilidades"
+                            </a>
+                            <a href="#contact" class="text-sm font-medium hover:text-primary">
+                                "Contacto"
+                            </a>
                             <div class="pt-4 border-t flex justify-center">
                                 <ThemeToggle />
                             </div>
@@ -71,61 +94,70 @@ pub fn OSSContributions() -> impl IntoView {
             </header>
             <main class="container py-8 px-4 sm:px-6">
                 <section class="py-12 md:py-20">
-                    <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">"Open Source Contributions"</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">
+                        "Open Source Contributions"
+                    </h1>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {contributions.into_iter().map(|contribution| {
-                            let title = contribution.title;
-                            let merged = contribution.merged;
-                            let repo = contribution.repo_url;
-                            view! {
-                                <div class="bg-card rounded-lg border p-6 shadow-sm">
-                                    <div class="flex items-center gap-3 mb-4">
-                                        <GithubIcon _class="h-6 w-6"/>
-                                        <a
-                                            href=repo
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-xl font-semibold hover:text-primary hover:underline"
-                                        >
-                                            {title}
-                                        </a>
-                                        <div class="ml-auto">
-                                            <Show
-                                                when=move || merged
-                                                fallback=|| view! {
-                                                    <span class="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
-                                                        "Open"
-                                                    </span>
-                                                }
+                        {contributions
+                            .into_iter()
+                            .map(|contribution| {
+                                let title = contribution.title;
+                                let merged = contribution.merged;
+                                let repo = contribution.repo_url;
+                                view! {
+                                    <div class="bg-card rounded-lg border p-6 shadow-sm">
+                                        <div class="flex items-center gap-3 mb-4">
+                                            <GithubIcon _class="h-6 w-6" />
+                                            <a
+                                                href=repo
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="text-xl font-semibold hover:text-primary hover:underline"
                                             >
-                                                <span class="px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full">
-                                                    "Merged"
-                                                </span>
-                                            </Show>
+                                                {title}
+                                            </a>
+                                            <div class="ml-auto">
+                                                <Show
+                                                    when=move || merged
+                                                    fallback=|| {
+                                                        view! {
+                                                            <span class="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
+                                                                "Open"
+                                                            </span>
+                                                        }
+                                                    }
+                                                >
+                                                    <span class="px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full">
+                                                        "Merged"
+                                                    </span>
+                                                </Show>
+                                            </div>
+                                        </div>
+
+                                        <p class="text-muted-foreground mb-4">
+                                            {contribution.description.clone()}
+                                        </p>
+
+                                        <div class="flex items-center gap-4 text-sm">
+                                            <a
+                                                href=contribution.pr_url.clone()
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="inline-flex items-center gap-2 text-primary hover:underline"
+                                            >
+                                                <LinkIcon _class="h-4 w-4" />
+                                                "View PR"
+                                            </a>
+                                            <div class="flex items-center gap-1">
+                                                <StarIcon _class="h-4 w-4" />
+                                                <span>{contribution.stars}</span>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <p class="text-muted-foreground mb-4">{contribution.description.clone()}</p>
-
-                                    <div class="flex items-center gap-4 text-sm">
-                                        <a
-                                            href=contribution.pr_url.clone()
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="inline-flex items-center gap-2 text-primary hover:underline"
-                                        >
-                                            <LinkIcon _class="h-4 w-4"/>
-                                            "View PR"
-                                        </a>
-                                        <div class="flex items-center gap-1">
-                                            <StarIcon _class="h-4 w-4"/>
-                                            <span>{contribution.stars}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        }).collect::<Vec<_>>()}
+                                }
+                            })
+                            .collect::<Vec<_>>()}
                     </div>
                 </section>
             </main>
