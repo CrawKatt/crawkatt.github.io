@@ -5,7 +5,6 @@ use crate::components::{MoonIcon, SunIcon};
 pub fn ThemeToggle() -> impl IntoView {
     let (is_dark, set_is_dark) = signal(false);
 
-    // Leer preferencia del usuario en localStorage
     Effect::new(move |_| {
         let window = window();
         let document = window.document().unwrap();
