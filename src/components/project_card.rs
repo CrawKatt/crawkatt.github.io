@@ -10,16 +10,17 @@ pub fn ProjectCard(
 ) -> impl IntoView {
     view! {
         <div class="overflow-hidden rounded-lg border bg-card text-card-foreground shadow">
-            <div class="relative h-48">
-                <img src=image alt=title.clone() class="object-cover w-full h-full" />
+            <div class="relative aspect-square">
+                <img
+                    src=image
+                    alt=title.clone()
+                    class="object-contain w-full h-full p-4"
+                    loading="lazy"
+                />
             </div>
             <div class="p-6">
                 <h3 class="text-lg font-semibold">{title}</h3>
-                <p class="text-sm text-muted-foreground mt-2 mb-4">{description}</p>
-                <p class="mb-4">
-                    "This project demonstrates the power of Rust on the web, using Leptos for reactivity
-                    and TailwindCSS for styling."
-                </p>
+                <p class="mb-4">{description}</p>
                 <div class="flex gap-2">
                     <a
                         href=demo
