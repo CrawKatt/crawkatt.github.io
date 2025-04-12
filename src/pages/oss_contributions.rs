@@ -1,18 +1,36 @@
+use bon::Builder;
 use crate::components::{GithubIcon, Header, LinkIcon, StarIcon};
 use leptos::prelude::*;
 
 #[component]
 pub fn OSSContributions() -> impl IntoView {
     let contributions = vec![
-        Contribution {
-            title: "Teloxide Contribution".to_string(),
-            description: "Added example improving docs".to_string(),
-            repo_url: "https://github.com/teloxide/teloxide".to_string(),
-            pr_url: "https://github.com/teloxide/teloxide/pull/915".to_string(),
-            stars: 3476,
-            merged: true,
-        },
-        // Agrega más contribuciones aquí
+        Contribution::builder()
+            .title("Teloxide Contribution")
+            .description("Added example improving docs")
+            .repo_url("https://github.com/teloxide/teloxide")
+            .pr_url("https://github.com/teloxide/teloxide/pull/915")
+            .stars(3476)
+            .merged(true)
+            .build(),
+
+        Contribution::builder()
+            .title("RustLangEs Website Contribution")
+            .description("Frases añadidas al sitio, añadido rust-toolchain.toml para aplicar nightly por defecto y añadido apartado de Salamandra Devs en comunidades")
+            .repo_url("https://github.com/RustLangES/RustLangES.github.io")
+            .pr_url("https://github.com/RustLangES/RustLangES.github.io/pull/25")
+            .stars(18)
+            .merged(true)
+            .build(),
+
+        Contribution::builder()
+            .title("Traducción del Libro de Rust de la comunidad de RustLangEs")
+            .description("Añadiendo traducción de los Slices")
+            .repo_url("https://github.com/RustLangES/rust-book-es")
+            .pr_url("https://github.com/RustLangES/rust-book-es/pull/2")
+            .stars(96)
+            .merged(true)
+            .build()
     ];
 
     view! {
@@ -91,7 +109,8 @@ pub fn OSSContributions() -> impl IntoView {
     }
 }
 
-#[derive(Clone)]
+#[derive(Clone, Builder)]
+#[builder(on(String, into))]
 struct Contribution {
     title: String,
     description: String,
