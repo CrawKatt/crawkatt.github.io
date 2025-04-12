@@ -7,10 +7,13 @@ edition = "2021"
 leptos = { version = "0.7.2", features = ["csr"] }
 leptos_meta = { version = "0.7.2" }
 leptos_router = { version = "0.7.2" }
+leptos-fluent = "0.2"
+fluent-templates = { version = "0.13.0", default-features = false, features = ["macros", "walkdir"] }
 gloo-net = { version = "0.6.0", features = ["http"] }
 console_error_panic_hook = "0.1.7"
 chrono = "0.4.39"
 time = "0.3.37"
+bon = "3.3.1"
 wasm-bindgen = "0.2.100"
 web-sys = { version = "0.3.77", features = ["Storage", "MediaQueryList"] }
 
