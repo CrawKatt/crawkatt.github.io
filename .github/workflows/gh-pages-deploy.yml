@@ -42,11 +42,20 @@ jobs:
       - name: lint
         run: cargo clippy & cargo fmt
 
+      # Tailwind: instalación y build por separado para mostrar logs si algo falla
+      - name: Instalar Tailwind
+        run: npm install -D tailwindcss
 
-      # If using tailwind...
-      - name: Download and install tailwindcss binary
-        run: npm install -D tailwindcss && npx tailwindcss -i ./style/tailwind.css -o ./dist/tailwind.css  # run tailwind
+      - name: Mostrar logs de npm si falla (instalación)
+        if: failure()
+        run: cat /home/runner/.npm/_logs/*.log || echo "No se encontró log"
 
+      - name: Ejecutar Tailwind
+        run: npx tailwindcss -i ./style/tailwind.css -o ./dist/tailwind.css
+
+      - name: Mostrar logs de npm si falla (tailwindcss)
+        if: failure()
+        run: cat /home/runner/.npm/_logs/*.log || echo "No se encontró log"
 
       - name: Download and install Trunk binary
         run: wget -qO- https://github.com/trunk-rs/trunk/releases/download/v0.18.4/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
