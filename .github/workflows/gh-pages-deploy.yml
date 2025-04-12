@@ -45,7 +45,6 @@ jobs:
       - name: Instalar Tailwind y dependencias
         run: |
           npm install -D tailwindcss postcss autoprefixer tailwindcss-animate
-          npx tailwindcss -i ./style/tailwind.css -o ./dist/tailwind.css
 
       - name: Mostrar logs de npm si falla
         if: failure()
