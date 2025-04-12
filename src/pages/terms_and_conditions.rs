@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use leptos_fluent::move_tr;
 use crate::components::{Footer, Header};
 
 #[component]
@@ -7,81 +8,66 @@ pub fn TermsAndConditions() -> impl IntoView {
         <div class="min-h-screen bg-background text-gray-900 dark:text-gray-200">
             <Header />
             <main class="container mx-auto max-w-3xl py-12 px-6 sm:px-8 bg-white dark:bg-gray-900 shadow-lg rounded-lg">
-                <h1 class="text-3xl font-bold text-center mb-6">"Términos y condiciones"</h1>
+                <h1 class="text-3xl font-bold text-center mb-6">{move_tr!("terms-title")}</h1>
 
                 <p class="text-lg leading-relaxed mb-6">
-                    "Bienvenido/a a mi portafolio web. Al interactuar con este sitio y/o considerar mis servicios como desarrollador de Rust y Minecraft Modder,
-                    aceptas los siguientes términos y condiciones:"
+                    {move_tr!("terms-intro")}
                 </p>
 
-                <h3 class="text-2xl font-semibold mt-8 mb-4">"1. Alcance de los Servicios"</h3>
-                <p class="mb-4">
-                    "Ofrezco servicios de desarrollo en Rust y creación de mods para Minecraft. Estos pueden incluir,
-                    entre otros, diseño y programación de mods, optimización de código y consultoría técnica."
-                </p>
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section1-title")}</h3>
+                <p class="mb-4">{move_tr!("terms-section1-content")}</p>
 
-                <h3 class="text-2xl font-semibold mt-8 mb-4">"2. Restricciones sobre Proyectos Aceptados"</h3>
-                <p class="mb-4">
-                    "No acepto comisiones, solicitudes ni colaboraciones relacionadas con Blockchain, incluyendo, pero no limitado a:"
-                </p>
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section2-title")}</h3>
+                <p class="mb-4">{move_tr!("terms-section2-intro")}</p>
                 <ul class="list-disc list-inside space-y-2">
-                    <li class="text-red-500">"Aplicaciones Web3"</li>
-                    <li class="text-red-500">"Smart Contracts"</li>
-                    <li class="text-red-500">"Tokens"</li>
-                    <li class="text-red-500">"Criptomonedas (Crypto)"</li>
-                    <li class="text-red-500">"NFTs"</li>
-                    <li class="text-red-500">"Juegos Play-to-Earn (P2E)"</li>
+                    <li class="text-red-500">{move_tr!("terms-section2-item1")}</li>
+                    <li class="text-red-500">{move_tr!("terms-section2-item2")}</li>
+                    <li class="text-red-500">{move_tr!("terms-section2-item3")}</li>
+                    <li class="text-red-500">{move_tr!("terms-section2-item4")}</li>
+                    <li class="text-red-500">{move_tr!("terms-section2-item5")}</li>
+                    <li class="text-red-500">{move_tr!("terms-section2-item6")}</li>
                 </ul>
                 <p class="italic text-gray-600 mt-2">
-                    "Cualquier solicitud que involucre estas tecnologías será rechazada de inmediato."
+                    {move_tr!("terms-section2-note")}
                 </p>
 
-                <h3 class="text-2xl font-semibold mt-8 mb-4">"3. Derechos de Autor y Propiedad Intelectual"</h3>
-                <p class="mb-4">
-                    "A menos que se acuerde lo contrario, conservo los derechos de autor de los proyectos desarrollados.
-                    El cliente recibirá los derechos de uso según lo estipulado en el acuerdo de trabajo."
-                </p>
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section3-title")}</h3>
+                <p class="mb-4">{move_tr!("terms-section3-content")}</p>
 
-                <h3 class="text-2xl font-semibold mt-8 mb-4">"4. Responsabilidad"</h3>
-                <p class="mb-4">
-                    "No me hago responsable por el mal uso del código o software entregado. Una vez finalizado el proyecto y entregado al cliente,
-                    el uso y las consecuencias derivadas del mismo son responsabilidad exclusiva del receptor."
-                </p>
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section4-title")}</h3>
+                <p class="mb-4">{move_tr!("terms-section4-content")}</p>
 
-                <h3 class="text-2xl font-semibold mt-8 mb-4">"5. Modificaciones y Cancelaciones"</h3>
-                <p class="mb-4">
-                    "Me reservo el derecho de modificar estos términos y condiciones en cualquier momento.
-                    Asimismo, me reservo el derecho de rechazar o cancelar proyectos en cualquier
-                    fase si se violan estas condiciones o si surge alguna circunstancia que impida
-                    la finalización del trabajo."
-                </p>
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section5-title")}</h3>
+                <p class="mb-4">{move_tr!("terms-section5-content")}</p>
 
-                <h3 class="text-2xl font-semibold mt-8 mb-4">"6. Formas de Pago y Reembolsos"</h3>
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section6-title")}</h3>
                 <ul class="list-disc list-inside space-y-2">
-                    <li>"Acepto pagos a través de los métodos previamente acordados con el cliente."</li>
-                    <li>"Se podría requerir un anticipo antes de iniciar el trabajo."</li>
-                    <li class="text-red-500">"No se realizarán reembolsos una vez que el trabajo haya comenzado, salvo acuerdo previo."</li>
+                    <li>{move_tr!("terms-section6-item1")}</li>
+                    <li>{move_tr!("terms-section6-item2")}</li>
+                    <li class="text-red-500">{move_tr!("terms-section6-item3")}</li>
                 </ul>
 
-                <h3 class="text-2xl font-semibold mt-8 mb-4">"7. Plazos y Entregas"</h3>
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section7-title")}</h3>
                 <ul class="list-disc list-inside space-y-2">
-                    <li>"Los tiempos de entrega serán acordados con el cliente y podrán ajustarse según la complejidad del proyecto."</li>
-                    <li>"No me hago responsable de retrasos ocasionados por falta de información, respuestas tardías o cambios solicitados por el cliente."</li>
+                    <li>{move_tr!("terms-section7-item1")}</li>
+                    <li>{move_tr!("terms-section7-item2")}</li>
                 </ul>
 
-                <h3 class="text-2xl font-semibold mt-8 mb-4">"8. Uso del Trabajo en el Portafolio"</h3>
-                <li>"Me reservo el derecho de mostrar los proyectos desarrollados en mi portafolio y redes sociales, salvo que se acuerde lo contrario."</li>
-
-                <h3 class="text-2xl font-semibold mt-8 mb-4">"9. Soporte y Mantenimiento"</h3>
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section8-title")}</h3>
                 <ul class="list-disc list-inside space-y-2">
-                    <li>"Ofrezco soporte por un tiempo determinado tras la entrega del proyecto, el cual se definirá en el acuerdo con el cliente."</li>
-                    <li>"Cualquier mantenimiento o actualización posterior podría implicar costos adicionales."</li>
+                    <li>{move_tr!("terms-section8-item1")}</li>
                 </ul>
 
-                <h3 class="text-2xl font-semibold mt-8 mb-4">"10. Confidencialidad"</h3>
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section9-title")}</h3>
                 <ul class="list-disc list-inside space-y-2">
-                    <li>"Me comprometo a tratar con confidencialidad cualquier información proporcionada por el cliente."</li>
-                    <li>"Si es necesario, podré firmar acuerdos de confidencialidad (NDA) bajo petición del cliente."</li>
+                    <li>{move_tr!("terms-section9-item1")}</li>
+                    <li>{move_tr!("terms-section9-item2")}</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section10-title")}</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>{move_tr!("terms-section10-item1")}</li>
+                    <li>{move_tr!("terms-section10-item2")}</li>
                 </ul>
 
             </main>

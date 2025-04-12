@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use leptos_fluent::move_tr;
 use crate::components::{GithubIcon, MailIcon};
 
 #[component]
@@ -7,7 +8,7 @@ pub fn Footer() -> impl IntoView {
         <footer class="border-t py-6">
             <div class="container flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between px-4 sm:px-6">
                 <p class="text-center text-sm leading-loose text-muted-foreground md:text-left">
-                    "© 2025 CrawKatt. All rights reserved."
+                    {move_tr!("site-copyright")}
                 </p>
                 <div class="flex items-center gap-4">
                     <a
@@ -34,7 +35,7 @@ pub fn Footer() -> impl IntoView {
                         href="/terms-and-conditions"
                         class="text-center text-sm leading-loose text-muted-foreground md:text-right hover:text-primary"
                     >
-                        "Términos y Condiciones."
+                        {move_tr!("terms-footer")}
                     </a>
                 </div>
             </div>

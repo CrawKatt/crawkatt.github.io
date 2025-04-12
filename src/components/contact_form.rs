@@ -1,5 +1,6 @@
 use leptos::{ev, logging};
 use leptos::prelude::*;
+use leptos_fluent::move_tr;
 
 #[component]
 pub fn ContactForm() -> impl IntoView {
@@ -20,51 +21,45 @@ pub fn ContactForm() -> impl IntoView {
     view! {
         <div class="rounded-lg border bg-card text-card-foreground shadow">
             <div class="p-6">
-                <h3 class="text-lg font-semibold mb-1">"Envíe un Mensaje"</h3>
+                <h3 class="text-lg font-semibold mb-1">{move_tr!("contact-form-title")}</h3>
                 <p class="text-sm text-muted-foreground mb-4">
-                    "Llene el formulario a continuación y me pondré en contacto con usted lo antes posible."
+                    {move_tr!("contact-form-description")}
                 </p>
                 <form on:submit=handle_submit class="grid gap-4">
                     <div class="grid gap-2">
                         <label for="name" class="text-sm font-medium">
-                            "Nombre"
+                            {move_tr!("contact-form-name-label")}
                         </label>
                         <input
                             id="name"
                             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            placeholder="Su nombre"
-                            on:input=move |ev| {
-                                set_name.set(event_target_value(&ev));
-                            }
+                            placeholder=move_tr!("contact-form-name-placeholder")
+                            on:input=move |ev| set_name.set(event_target_value(&ev))
                             prop:value=name
                         />
                     </div>
                     <div class="grid gap-2">
                         <label for="email" class="text-sm font-medium">
-                            "Email"
+                            {move_tr!("contact-form-email-label")}
                         </label>
                         <input
                             id="email"
                             type="email"
                             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            placeholder="Su email"
-                            on:input=move |ev| {
-                                set_email.set(event_target_value(&ev));
-                            }
+                            placeholder=move_tr!("contact-form-email-placeholder")
+                            on:input=move |ev| set_email.set(event_target_value(&ev))
                             prop:value=email
                         />
                     </div>
                     <div class="grid gap-2">
                         <label for="message" class="text-sm font-medium">
-                            "Mensaje"
+                            {move_tr!("contact-form-message-label")}
                         </label>
                         <textarea
                             id="message"
                             class="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            placeholder="Su mensaje"
-                            on:input=move |ev| {
-                                set_message.set(event_target_value(&ev));
-                            }
+                            placeholder=move_tr!("contact-form-message-placeholder")
+                            on:input=move |ev| set_message.set(event_target_value(&ev))
                             prop:value=message
                         />
                     </div>
@@ -73,15 +68,14 @@ pub fn ContactForm() -> impl IntoView {
                             id="terms"
                             type="checkbox"
                             class="w-5 h-5 rounded border border-gray-300 checked:bg-primary checked:border-transparent focus:ring-2 focus:ring-primary"
-                            on:change=move |ev| {
-                                set_accepted_terms.set(event_target_checked(&ev));
-                            }
+                            on:change=move |ev| set_accepted_terms.set(event_target_checked(&ev))
                             prop:checked=accepted_terms
                         />
                         <label for="terms" class="text-sm text-gray-600">
-                            "Acepto los "
+                            {move_tr!("contact-form-terms-agree")}
+                            " "
                             <a href="/terms-and-conditions" class="text-primary hover:underline">
-                                "Términos y Condiciones"
+                                {move_tr!("contact-form-terms-link")}
                             </a>
                         </label>
                     </div>
@@ -90,11 +84,10 @@ pub fn ContactForm() -> impl IntoView {
                         class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 w-full bg-primary text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled=move || !accepted_terms.get()
                     >
-                        "Enviar Mensaje"
+                        {move_tr!("contact-form-submit")}
                     </button>
                 </form>
             </div>
         </div>
     }
 }
-

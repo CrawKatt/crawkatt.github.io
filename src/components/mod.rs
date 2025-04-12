@@ -10,6 +10,7 @@ mod about;
 mod projects;
 mod skills;
 mod contact;
+mod language_switcher;
 
 pub use project_card::ProjectCard;
 pub use skill_card::SkillCard;
@@ -23,3 +24,4 @@ pub use about::About;
 pub use projects::Projects;
 pub use skills::Skills;
 pub use contact::Contact;
+pub use language_switcher::LanguageSelector;

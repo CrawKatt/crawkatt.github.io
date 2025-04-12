@@ -1,9 +1,10 @@
 use leptos::prelude::*;
+use leptos_fluent::move_tr;
 
 #[component]
 pub fn ProjectCard(
-    title: String,
-    description: String,
+    title: Signal<String>,
+    description: Signal<String>,
     image: String,
     demo: String,
     source_code: String
@@ -32,7 +33,7 @@ pub fn ProjectCard(
                         href=source_code
                         class="inline-flex items-center justify-center rounded-md text-sm font-medium h-9 px-3 bg-primary text-primary-foreground"
                     >
-                        "Source Code"
+                        {move_tr!("source-code")}
                     </a>
                 </div>
             </div>
