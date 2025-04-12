@@ -70,7 +70,7 @@ pub fn TermsAndConditions() -> impl IntoView {
                 </ul>
 
                 <h3 class="text-2xl font-semibold mt-8 mb-4">"8. Uso del Trabajo en el Portafolio"</h3>
-                <p>"Me reservo el derecho de mostrar los proyectos desarrollados en mi portafolio y redes sociales, salvo que se acuerde lo contrario."</p>
+                <li>"Me reservo el derecho de mostrar los proyectos desarrollados en mi portafolio y redes sociales, salvo que se acuerde lo contrario."</li>
 
                 <h3 class="text-2xl font-semibold mt-8 mb-4">"9. Soporte y Mantenimiento"</h3>
                 <ul class="list-disc list-inside space-y-2">
