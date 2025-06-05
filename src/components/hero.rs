@@ -4,18 +4,18 @@ use leptos_fluent::move_tr;
 #[component]
 pub fn Hero() -> impl IntoView {
     view! {
-        <section class="relative py-12 md:py-20 min-h-[500px] flex items-center justify-center overflow-hidden">
+        <section class="sticky top-[88px] min-h-[calc(100vh-88px)] overflow-hidden z-10">
             <video
                 autoplay
                 muted
                 loop
-                class="absolute inset-0 w-full h-full object-cover blur-lg z-0"
+                class="absolute top-0 left-0 w-full h-full object-cover blur-lg z-0"
             >
                 <source src="/public/background-video.webm" type="video/webm" />
                 "Your browser does not support HTML5 video."
             </video>
             <div class="absolute inset-0 bg-black/50 z-10"></div>
-            <div class="relative z-20 flex flex-col items-center text-center">
+            <div class="relative z-20 flex flex-col items-center text-center py-24 pt-44">
                 <div class="relative w-24 h-24 md:w-32 md:h-32 mb-6 md:mb-8 rounded-full overflow-hidden border-4 border-primary">
                     <img
                         src="/public/profile.png"
@@ -43,6 +43,18 @@ pub fn Hero() -> impl IntoView {
                         {move_tr!("hero-projects")}
                     </a>
                 </div>
+            </div>
+            <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 animate-bounce text-white">
+                <svg
+                    class="w-6 h-6 md:w-8 md:h-8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
             </div>
         </section>
     }
