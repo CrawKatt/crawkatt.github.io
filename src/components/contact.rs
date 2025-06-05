@@ -1,11 +1,12 @@
 use leptos::prelude::*;
+use leptos_fluent::move_tr;
 use crate::components::{ContactForm, DiscordIcon, GithubIcon, MailIcon, XIcon};
 
 #[component]
 pub fn Contact() -> impl IntoView {
     view! {
         <section id="contact" class="py-12 md:py-16 scroll-mt-20">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">"Contácteme"</h2>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">{move_tr!("contact-title")}</h2>
             <div class="w-full md:max-w-md mx-auto">
                 <div class="flex justify-center gap-4 mb-6">
                     <a
