@@ -31,6 +31,7 @@ projects-leafy-dashboard-title = Leafy Dashboard
 projects-leafy-dashboard-description = Dashboard Web hecha en Leptos, Actix y SurrealDB para configurar a Leafy
 
 # Contact Form
+contact-title = Contáctame
 contact-form-title = Envíe un Mensaje
 contact-form-description = Llene el formulario a continuación y me pondré en contacto con usted lo antes posible.
 contact-form-name-label = Nombre
