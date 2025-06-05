@@ -18,10 +18,8 @@ source-code = Código Fuente
 # About
 about-title = Sobre Mí
 about-image-alt = Sobre mí
-about-intro = ¡Hola! Soy un desarrollador apasionado con experiencia en la creación de mods para Minecraft, Bots para Discord y programación en Rust.
-about-childhood = Desde que era niño siempre me entusiasmé por la computación y la tecnología, crecí estudiando por mi cuenta siguiendo guías, foros, servidores de Discord sobre programación y tutoriales en YouTube. Cursé múltiples cursos de Udemy sobre programación y Modding para Minecraft.
-about-education = A mis 20 años entré a estudiar la carrera Técnico en Programación y Análisis de Sistemas en la Universidad, donde me titulé 3 años después. Puedes encontrarme en múltiples servidores de Discord sobre programación siempre dando lo mejor para ayudar a los demás.
-about-focus = Me dedico principalmente al Modding para Minecraft, BackEnd y Administración de Sistemas. Soy un apasionado usuario de Arch Linux y me encanta aprender y desarrollar proyectos únicos para los usuarios.
+about-intro = Poseo una sólida formación técnica en desarrollo de software, iniciada a través del autoaprendizaje mediante el estudio de documentación especializada, la participación activa en foros técnicos, comunidades en línea y el seguimiento de cursos avanzados. Esta base me ha permitido desarrollar un enfoque autónomo, analítico y orientado a la resolución de problemas complejos.
+about-education = Complementé esta formación finalizando estudios técnicos en Programación y Análisis de Sistemas, consolidando mis conocimientos en entornos académicos y profesionales. A lo largo de mi trayectoria, he participado activamente en comunidades de desarrollo, fomentando el intercambio de conocimientos y colaborando en la formación técnica de otros desarrolladores.
 
 # Projects
 projects-title = Mis Proyectos

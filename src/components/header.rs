@@ -7,8 +7,8 @@ pub fn Header() -> impl IntoView {
     let (show_mobile_menu, set_show_mobile_menu) = signal(false);
 
     view! {
-        <header class="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div class="container flex h-16 items-center justify-between px-4 sm:px-6">
+        <header class="sticky top-0 z-40 w-full border-b bg-background/95 supports-[backdrop-filter]:bg-background">
+            <div class="container flex h-[88px] items-center justify-between px-4 sm:px-6">
                 <div class="flex items-center gap-2">
                     <a href="/" class="font-bold text-lg sm:text-xl">"CrawKatt"</a>
                 </div>

@@ -18,9 +18,7 @@ pub fn About() -> impl IntoView {
                         </div>
                         <div class="flex flex-col gap-4 text-pretty justify-evenly text-xl">
                             <p>{move_tr!("about-intro")}</p>
-                            <p>{move_tr!("about-childhood")}</p>
                             <p>{move_tr!("about-education")}</p>
-                            <p>{move_tr!("about-focus")}</p>
                         </div>
                     </div>
                 </div>
