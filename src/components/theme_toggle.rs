@@ -1,9 +1,11 @@
 use leptos::prelude::*;
 use crate::components::{MoonIcon, SunIcon};
+use crate::context::use_theme_context;
 
 #[component]
 pub fn ThemeToggle() -> impl IntoView {
-    let (is_dark, set_is_dark) = signal(false);
+    let theme_ctx = use_theme_context();
+    let is_dark = theme_ctx.is_dark;
 
     Effect::new(move |_| {
         let window = window();
@@ -14,7 +16,7 @@ pub fn ThemeToggle() -> impl IntoView {
         let prefers_dark = window.match_media("(prefers-color-scheme: dark)").unwrap().unwrap().matches();
 
         let dark_mode = stored_theme.as_deref() == Some("dark") || (stored_theme.is_none() && prefers_dark);
-        set_is_dark.set(dark_mode);
+        is_dark.set(dark_mode);
 
         if dark_mode {
             html.class_list().add_1("dark").unwrap();
@@ -31,7 +33,7 @@ pub fn ThemeToggle() -> impl IntoView {
         let new_theme = if is_dark.get() { "light" } else { "dark" };
         window.local_storage().unwrap().unwrap().set_item("theme", new_theme).unwrap();
 
-        set_is_dark.update(|dark| *dark = !*dark);
+        is_dark.update(|dark| *dark = !*dark);
 
         if is_dark.get() {
             html.class_list().add_1("dark").unwrap();

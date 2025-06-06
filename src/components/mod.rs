@@ -11,6 +11,7 @@ mod projects;
 mod skills;
 mod contact;
 mod language_switcher;
+mod separator;
 
 pub use project_card::ProjectCard;
 pub use skill_card::SkillCard;
@@ -25,3 +26,4 @@ pub use projects::Projects;
 pub use skills::Skills;
 pub use contact::Contact;
 pub use language_switcher::LanguageSelector;
+pub use separator::Separator;

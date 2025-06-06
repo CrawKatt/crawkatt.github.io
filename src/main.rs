@@ -1,6 +1,7 @@
 mod app;
 mod components;
 mod pages;
+mod context;
 
 use app::*;
 use leptos::{logging, mount};
