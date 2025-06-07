@@ -1,9 +1,11 @@
 use leptos::prelude::*;
 use leptos_fluent::move_tr;
 use crate::components::{Footer, Header};
+use crate::context::provide_theme_context;
 
 #[component]
 pub fn TermsAndConditions() -> impl IntoView {
+    let _ = provide_theme_context();
     view! {
         <div class="min-h-screen bg-background text-gray-900 dark:text-gray-200">
             <Header />

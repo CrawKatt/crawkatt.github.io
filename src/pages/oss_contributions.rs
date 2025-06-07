@@ -1,9 +1,11 @@
 use bon::Builder;
 use crate::components::{GithubIcon, Header, LinkIcon, StarIcon};
 use leptos::prelude::*;
+use crate::context::provide_theme_context;
 
 #[component]
 pub fn OSSContributions() -> impl IntoView {
+    let _ = provide_theme_context();
     let contributions = vec![
         Contribution::builder()
             .title("Teloxide Contribution")
