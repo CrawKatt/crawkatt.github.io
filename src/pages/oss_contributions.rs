@@ -30,6 +30,24 @@ pub fn OSSContributions() -> impl IntoView {
             .pr_url("https://github.com/RustLangES/rust-book-es/pull/2")
             .stars(96)
             .merged(true)
+            .build(),
+
+        Contribution::builder()
+            .title("Traducción del Mod UltimateCraft de BassStarling")
+            .description("Añadiendo traducción al idioma Español")
+            .repo_url("https://github.com/BassStarling/ultimatecraft-1.21")
+            .pr_url("https://github.com/BassStarling/ultimatecraft-1.21/pull/2")
+            .stars(0)
+            .merged(true)
+            .build(),
+
+        Contribution::builder()
+            .title("Ancient Times Mod Contribution")
+            .description("Fix bugs and add features to Ancient Times Mod")
+            .repo_url("https://github.com/DeluAxolol/Ancient-Times")
+            .pr_url("https://github.com/DeluAxolol/Ancient-Times/pull/1")
+            .stars(2)
+            .merged(true)
             .build()
     ];
 
