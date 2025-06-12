@@ -64,6 +64,8 @@ terms-section2-item3 = Tokens
 terms-section2-item4 = Criptomonedas (Crypto)
 terms-section2-item5 = NFTs
 terms-section2-item6 = Juegos Play-to-Earn (P2E)
+terms-section2-item7 = Herramientas de desarrollo Low Code/No Code como WordPress, MCreator, Wix, Bubble, entre otras.
+terms-section2-item8 = Proyectos relacionados con generación de imágenes mediante inteligencia artificial (IA), como modelos de texto a imagen o similares.
 terms-section2-note = Cualquier solicitud que involucre estas tecnologías será rechazada de inmediato.
 
 terms-section3-title = 3. Derechos de Autor y Propiedad Intelectual
