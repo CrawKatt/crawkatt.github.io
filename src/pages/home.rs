@@ -1,10 +1,8 @@
-use crate::components::{Header, Hero, About, Projects, Skills, Contact, Footer, Separator};
-use crate::context::provide_theme_context;
+use crate::components::{About, Contact, Footer, Header, Hero, Projects, Separator, Skills};
 use leptos::prelude::*;
 
 #[component]
 pub fn Home() -> impl IntoView {
-    let _ = provide_theme_context();
 
     view! {
         <Header />

@@ -1,15 +1,25 @@
+use crate::components::{Footer, Header};
 use leptos::prelude::*;
 use leptos_fluent::move_tr;
-use crate::components::{Footer, Header};
 use crate::context::provide_theme_context;
 
 #[component]
 pub fn TermsAndConditions() -> impl IntoView {
-    let _ = provide_theme_context();
+    let theme_context = provide_theme_context();
+    let is_dark = theme_context.is_dark;
+
     view! {
-        <div class="min-h-screen bg-background text-gray-900 dark:text-gray-200">
+        <div 
+            class="min-h-screen"
+            class=("bg-gray-50 text-gray-900", move || !is_dark.get())
+            class=("bg-gray-900 text-gray-200", move || is_dark.get())
+        >
             <Header />
-            <main class="container mx-auto max-w-3xl py-12 px-6 sm:px-8 bg-white dark:bg-gray-900 shadow-lg rounded-lg">
+            <main 
+                class="container mx-auto max-w-3xl py-12 px-6 sm:px-8 shadow-lg rounded-lg"
+                class=("bg-white", move || !is_dark.get())
+                class=("bg-gray-900", move || is_dark.get())
+            >
                 <h1 class="text-3xl font-bold text-center mb-6">{move_tr!("terms-title")}</h1>
 
                 <p class="text-lg leading-relaxed mb-6">
@@ -28,8 +38,13 @@ pub fn TermsAndConditions() -> impl IntoView {
                     <li class="text-red-500">{move_tr!("terms-section2-item4")}</li>
                     <li class="text-red-500">{move_tr!("terms-section2-item5")}</li>
                     <li class="text-red-500">{move_tr!("terms-section2-item6")}</li>
+                    <li class="text-red-500">{move_tr!("terms-section2-item7")}</li>
+                    <li class="text-red-500">{move_tr!("terms-section2-item8")}</li>
                 </ul>
-                <p class="italic text-gray-600 mt-2">
+                <p class="italic mt-2"
+                    class=("text-gray-600", move || !is_dark.get())
+                    class=("text-gray-400", move || is_dark.get())
+                >
                     {move_tr!("terms-section2-note")}
                 </p>
 
