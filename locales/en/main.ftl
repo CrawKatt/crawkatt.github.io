@@ -96,3 +96,8 @@ terms-section9-item2 = Any subsequent maintenance or updates may incur additiona
 terms-section10-title = 10. Confidentiality
 terms-section10-item1 = I commit to treating any client-provided information confidentially.
 terms-section10-item2 = I can sign confidentiality agreements (NDA) upon client request if necessary.
+
+terms-section11-title = 11. Unauthorized Use and Prohibitions
+terms-section11-item1 = It is strictly prohibited to decompile, disassemble, or reverse-engineer the delivered code, in whole or in part.
+terms-section11-item2 = Copying, extracting, or leaking code fragments for public availability is not allowed unless the project has been explicitly designated as open source.
+terms-section11-item3 = For Minecraft mods, uploading the project to monetizable platforms such as CurseForge or Modrinth without explicit authorization is forbidden. If authorization is granted, my account must be added to the project's organization on the respective platform, and 30% of the monetization revenue must be allocated to me.
