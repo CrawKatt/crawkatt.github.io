@@ -87,6 +87,13 @@ pub fn TermsAndConditions() -> impl IntoView {
                     <li>{move_tr!("terms-section10-item2")}</li>
                 </ul>
 
+                <h3 class="text-2xl font-semibold mt-8 mb-4">{move_tr!("terms-section11-title")}</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li class="text-red-500">{move_tr!("terms-section11-item1")}</li>
+                    <li class="text-red-500">{move_tr!("terms-section11-item2")}</li>
+                    <li class="text-red-500">{move_tr!("terms-section11-item3")}</li>
+                </ul>
+
             </main>
             <Footer />
         </div>
