@@ -56,17 +56,20 @@ terms-intro = Welcome to my portfolio website. By interacting with this site and
 terms-section1-title = 1. Scope of Services
 terms-section1-content = I offer Rust development services and Minecraft mod creation. These may include, but are not limited to: mod design and programming, code optimization, and technical consulting.
 
-terms-section2-title = 2. Project Restrictions
-terms-section2-intro = I do not accept commissions, requests or collaborations related to Blockchain, including but not limited to:
+terms-section2-title = 2. Project Restrictions: Blockchain
+terms-section2-intro = I do not accept commissions, requests, or collaborations related to Blockchain technologies, including but not limited to:
 terms-section2-item1 = Web3 Applications
 terms-section2-item2 = Smart Contracts
 terms-section2-item3 = Tokens
 terms-section2-item4 = Cryptocurrencies (Crypto)
 terms-section2-item5 = NFTs
 terms-section2-item6 = Play-to-Earn (P2E) Games
-terms-section2-item7 = Low Code/No Code development tools such as WordPress, MCreator, Wix, Bubble, and similar platforms.
-terms-section2-item8 = Projects related to image generation using artificial intelligence (AI), such as text-to-image models or similar technologies.
 terms-section2-note = Any requests involving these technologies will be immediately rejected.
+
+terms-section2-1-title = 2.1 Additional Project Restrictions
+terms-section2-1-intro = I also do not accept commissions, requests, or collaborations related to:
+terms-section2-1-item1 = Low Code/No Code development tools such as WordPress, MCreator, Wix, Bubble, and similar platforms.
+terms-section2-1-item2 = Projects related to image generation using artificial intelligence (AI), such as text-to-image models or similar technologies.
 
 terms-section3-title = 3. Copyright and Intellectual Property
 terms-section3-content = Unless otherwise agreed, I retain copyright of developed projects. The client will receive usage rights as stipulated in the work agreement.

@@ -1,9 +1,9 @@
 use leptos::prelude::*;
-use leptos_fluent::{expect_i18n, Language};
+use leptos_fluent::Language;
 
 #[component]
 pub fn LanguageSelector() -> impl IntoView {
-    let i18n = expect_i18n();
+    let i18n = expect_context::<leptos_fluent::I18n>();
     let (show_options, set_show_options) = signal(false);
 
     view! {
@@ -40,7 +40,7 @@ pub fn LanguageSelector() -> impl IntoView {
 }
 
 fn render_language(lang: &'static Language, set_show: WriteSignal<bool>) -> impl IntoView {
-    let i18n = expect_i18n();
+    let i18n = expect_context::<leptos_fluent::I18n>();
 
     view! {
         <button
@@ -49,7 +49,7 @@ fn render_language(lang: &'static Language, set_show: WriteSignal<bool>) -> impl
                 set_show.set(false);
             }
             class="w-full px-3 py-2 text-left rounded-md text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            class=("bg-gray-100 dark:bg-gray-700", move || lang.is_active())
+            class=("bg-gray-100 dark:bg-gray-700", move || i18n.language.get() == lang)
         >
             {lang.name}
         </button>

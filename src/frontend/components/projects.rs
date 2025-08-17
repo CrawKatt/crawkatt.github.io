@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 use leptos_fluent::move_tr;
-use crate::components::ProjectCard;
+use crate::frontend::components::ProjectCard;
 
 #[component]
 pub fn Projects() -> impl IntoView {

@@ -56,17 +56,20 @@ terms-intro = Bienvenido/a a mi portafolio web. Al interactuar con este sitio y/
 terms-section1-title = 1. Alcance de los Servicios
 terms-section1-content = Ofrezco servicios de desarrollo en Rust y creación de mods para Minecraft. Estos pueden incluir, entre otros, diseño y programación de mods, optimización de código y consultoría técnica.
 
-terms-section2-title = 2. Restricciones sobre Proyectos Aceptados
-terms-section2-intro = No acepto comisiones, solicitudes ni colaboraciones relacionadas con Blockchain, incluyendo, pero no limitado a:
+terms-section2-title = 2. Restricciones de Proyectos: Blockchain
+terms-section2-intro = No acepto comisiones, solicitudes ni colaboraciones relacionadas con tecnologías Blockchain, incluyendo, pero no limitado a:
 terms-section2-item1 = Aplicaciones Web3
 terms-section2-item2 = Smart Contracts
 terms-section2-item3 = Tokens
 terms-section2-item4 = Criptomonedas (Crypto)
 terms-section2-item5 = NFTs
 terms-section2-item6 = Juegos Play-to-Earn (P2E)
-terms-section2-item7 = Herramientas de desarrollo Low Code/No Code como WordPress, MCreator, Wix, Bubble, entre otras.
-terms-section2-item8 = Proyectos relacionados con generación de imágenes mediante inteligencia artificial (IA), como modelos de texto a imagen o similares.
 terms-section2-note = Cualquier solicitud que involucre estas tecnologías será rechazada de inmediato.
+
+terms-section2-1-title = 2.1 Restricciones Adicionales de Proyectos
+terms-section2-1-intro = Tampoco acepto comisiones, solicitudes ni colaboraciones relacionadas con:
+terms-section2-1-item1 = Herramientas de desarrollo Low Code/No Code como WordPress, MCreator, Wix, Bubble, entre otras.
+terms-section2-1-item2 = Proyectos relacionados con generación de imágenes mediante inteligencia artificial (IA), como modelos de texto a imagen o tecnologías similares.
 
 terms-section3-title = 3. Derechos de Autor y Propiedad Intelectual
 terms-section3-content = A menos que se acuerde lo contrario, conservo los derechos de autor de los proyectos desarrollados. El cliente recibirá los derechos de uso según lo estipulado en el acuerdo de trabajo.

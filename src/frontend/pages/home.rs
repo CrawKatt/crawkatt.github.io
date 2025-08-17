@@ -1,9 +1,8 @@
-use crate::components::{About, Contact, Footer, Header, Hero, Projects, Separator, Skills};
+use crate::frontend::components::{About, Contact, Footer, Header, Hero, Projects, Separator, Skills};
 use leptos::prelude::*;
 
 #[component]
 pub fn Home() -> impl IntoView {
-
     view! {
         <Header />
         <div class="relative">

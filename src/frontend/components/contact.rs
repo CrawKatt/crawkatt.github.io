@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 use leptos_fluent::move_tr;
-use crate::components::{ContactForm, DiscordIcon, GithubIcon, MailIcon, XIcon};
+use crate::frontend::components::{ContactForm, DiscordIcon, GithubIcon, MailIcon, XIcon};
 
 #[component]
 pub fn Contact() -> impl IntoView {

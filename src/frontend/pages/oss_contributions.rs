@@ -1,4 +1,4 @@
-use crate::components::{GithubIcon, Header, LinkIcon, StarIcon};
+use crate::frontend::components::{GithubIcon, Header, LinkIcon, StarIcon};
 use bon::Builder;
 use leptos::prelude::*;
 

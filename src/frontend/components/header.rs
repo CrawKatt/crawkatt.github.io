@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 use leptos_fluent::move_tr;
-use crate::components::{MenuIcon, ThemeToggle, LanguageSelector};
+use crate::frontend::components::{MenuIcon, ThemeToggle, LanguageSelector};
 
 #[component]
 pub fn Header() -> impl IntoView {

@@ -3,17 +3,77 @@ name = "portfolio"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+crate-type = ["cdylib", "rlib"]
+
 [dependencies]
-leptos = { version = "0.7.2", features = ["csr"] }
-leptos_meta = { version = "0.7.2" }
-leptos_router = { version = "0.7.2" }
-leptos-fluent = "0.2"
-fluent-templates = { version = "0.13.0", default-features = false, features = ["macros", "walkdir"] }
-gloo-net = { version = "0.6.0", features = ["http"] }
-console_error_panic_hook = "0.1.7"
-chrono = "0.4.39"
-time = "0.3.37"
+leptos = "0.7.4"
+leptos_actix = { version = "0.7.4", optional = true }
+leptos_meta = "0.7.4"
+leptos_router = "0.7.4"
+leptos-fluent = "0.2.16"
+
+# dependencies for browser (enable when hydrate set)
+console_error_panic_hook = { version = "0.1.7", optional = true }
+wasm-bindgen = { version = "^0.2.100", optional = true }
+
+# dependencies for server (enable when ssr set)
+actix-files = { version = "0.6.6", optional = true }
+actix-web = { version = "4.8", features = ["macros"], optional = true }
+
 bon = "3.3.1"
-wasm-bindgen = "0.2.100"
+gloo-net = { version = "0.3.1", features = ["http"] }
 web-sys = { version = "0.3.77", features = ["Storage", "MediaQueryList"] }
 
+[features]
+hydrate = [
+    "leptos/hydrate",
+    "leptos-fluent/hydrate",
+    "dep:wasm-bindgen",
+    "dep:console_error_panic_hook",
+]
+ssr = [
+    "leptos/ssr",
+    "leptos_meta/ssr",
+    "leptos_router/ssr",
+    "leptos-fluent/ssr",
+    "leptos-fluent/actix",
+    "dep:leptos_actix",
+    "dep:actix-web",
+    "dep:actix-files",
+]
+
+[package.metadata.cargo-all-features]
+denylist = [
+    "actix-files",
+    "actix-web",
+    "console_error_panic_hook",
+    "leptos_actix",
+    "wasm-bindgen",
+]
+skip_feature_sets = [["csr", "ssr"], ["csr", "hydrate"], ["ssr", "hydrate"]]
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 'z'
+
+[package.metadata.leptos]
+watch-additional-files = ["locales"]
+
+output-name = "portfolio"
+site-root = "target/site"
+site-pkg-dir = "pkg"
+tailwind-input-file = "style/tailwind.css"
+assets-dir = "public"
+site-addr = "127.0.0.1:3000"
+reload-port = 3001
+end2end-cmd = "npx playwright test"
+end2end-dir = "end2end"
+browserquery = "defaults"
+watch = false
+env = "DEV"
+bin-features = ["ssr"]
+bin-default-features = false
+lib-features = ["hydrate"]
+lib-default-features = false

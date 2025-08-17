@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 use leptos_fluent::move_tr;
-use crate::components::{GithubIcon, MailIcon};
+use crate::frontend::components::{GithubIcon, MailIcon};
 
 #[component]
 pub fn Footer() -> impl IntoView {
