@@ -55,6 +55,16 @@ pub fn App() -> impl IntoView {
 
     view! {
         <I18nProvider>
+            <Meta property="og:type" content="website"/>
+            <Meta property="og:title" content="CrawKatt - Portfolio"/>
+            <Meta property="og:description" content="CrawKatt Software Developer"/>
+            <Meta property="og:image" content="https://crawkatt.dev/profile.png"/>
+            <Meta property="og:url" content="https://crawkatt.dev/"/>
+
+            <Meta name="twitter:card" content="summary_large_image"/>
+            <Meta name="twitter:title" content="CrawKatt - Portfolio"/>
+            <Meta name="twitter:description" content="CrawKatt Software Developer"/>
+            <Meta name="twitter:image" content="https://crawkatt.dev/profile.png"/>
             <Stylesheet id="leptos" href="/pkg/portfolio.css" />
             <Link rel="shortcut icon" type_="image/png" href="/favicon.png" />
             <Router>
