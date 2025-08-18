@@ -22,6 +22,9 @@ actix-files = { version = "0.6.6", optional = true }
 actix-web = { version = "4.8", features = ["macros"], optional = true }
 
 bon = "3.3.1"
+lettre = { version = "0.11.18", default-features = false, features = ["tokio1", "tokio1-rustls-tls", "builder", "smtp-transport"], optional = true }
+serde = { version = "1.0.219", features = ["derive"] }
+dotenvy = { version = "0.15.7", optional = true }
 gloo-net = { version = "0.3.1", features = ["http"] }
 web-sys = { version = "0.3.77", features = ["Storage", "MediaQueryList"] }
 
@@ -41,6 +44,8 @@ ssr = [
     "dep:leptos_actix",
     "dep:actix-web",
     "dep:actix-files",
+    "dep:lettre",
+    "dep:dotenvy",
 ]
 
 [package.metadata.cargo-all-features]

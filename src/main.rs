@@ -1,6 +1,7 @@
 // Añadir los mod tanto en main.rs como en lib.rs
 mod app;
 mod frontend;
+mod server;
 
 #[cfg(feature = "ssr")]
 #[actix_web::main]

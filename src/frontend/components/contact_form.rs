@@ -1,6 +1,8 @@
-use leptos::{ev, logging};
 use leptos::prelude::*;
+use leptos::task::spawn_local;
+use leptos::{ev, logging};
 use leptos_fluent::move_tr;
+use crate::server::send_contact;
 
 #[component]
 pub fn ContactForm() -> impl IntoView {
@@ -12,7 +14,16 @@ pub fn ContactForm() -> impl IntoView {
     let handle_submit = move |ev: ev::SubmitEvent| {
         ev.prevent_default();
         if accepted_terms.get() {
-            logging::log!("Form submitted: {}, {}, {}", name.get(), email.get(), message.get());
+            let name_val = name.get();
+            let email_val = email.get();
+            let message_val = message.get();
+            
+            spawn_local(async move {
+                match send_contact(name_val, email_val, message_val).await {
+                    Ok(_) => logging::log!("Form submitted successfully."),
+                    Err(why) => logging::log!("Error submitting form: {why}"),
+                }
+            });
         } else {
             logging::log!("Debe aceptar los términos y condiciones.");
         }
