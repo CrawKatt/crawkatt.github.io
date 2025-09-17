@@ -1,5 +1,5 @@
 use leptos::prelude::*;
-use crate::components::SkillCard;
+use crate::frontend::components::SkillCard;
 
 #[component]
 pub fn Skills() -> impl IntoView {

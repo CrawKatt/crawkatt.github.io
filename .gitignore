@@ -14,3 +14,4 @@ playwright/.cache/
 dist/*
 dist/
 /.idea
+/.env

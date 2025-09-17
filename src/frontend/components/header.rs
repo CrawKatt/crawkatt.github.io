@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 use leptos_fluent::move_tr;
-use crate::components::{MenuIcon, ThemeToggle, LanguageSelector};
+use crate::frontend::components::{MenuIcon, ThemeToggle, LanguageSelector};
 
 #[component]
 pub fn Header() -> impl IntoView {
@@ -14,10 +14,10 @@ pub fn Header() -> impl IntoView {
                 </div>
                 <div class="hidden md:flex items-center gap-6 text-sm font-medium transition-colors">
                     <nav class="flex items-center gap-4 md:gap-6">
-                        <a href="#about" class="hover:text-primary">{move_tr!("header-about")}</a>
-                        <a href="#projects" class="hover:text-primary">{move_tr!("header-projects")}</a>
-                        <a href="#skills" class="hover:text-primary">{move_tr!("header-skills")}</a>
-                        <a href="#contact" class="hover:text-primary">{move_tr!("header-contact")}</a>
+                        <a href="/#about" class="hover:text-primary">{move_tr!("header-about")}</a>
+                        <a href="/#projects" class="hover:text-primary">{move_tr!("header-projects")}</a>
+                        <a href="/#skills" class="hover:text-primary">{move_tr!("header-skills")}</a>
+                        <a href="/#contact" class="hover:text-primary">{move_tr!("header-contact")}</a>
                         <a href="/contributions" class="hover:text-primary">{move_tr!("header-contributions")}</a>
                         <a href="/terms-and-conditions" class="hover:text-primary">{move_tr!("header-terms")}</a>
                     </nav>

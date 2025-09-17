@@ -1,6 +1,6 @@
 use leptos::prelude::*;
-use crate::components::{MoonIcon, SunIcon};
-use crate::context::use_theme_context;
+use crate::frontend::components::{MoonIcon, SunIcon};
+use crate::frontend::context::use_theme_context;
 
 #[component]
 pub fn ThemeToggle() -> impl IntoView {

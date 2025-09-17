@@ -1,5 +1,5 @@
 use leptos::prelude::*;
-use crate::context::*;
+use crate::frontend::context::*;
 
 #[component]
 pub fn Separator() -> impl IntoView {
