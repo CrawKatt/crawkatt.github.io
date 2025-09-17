@@ -56,7 +56,7 @@ pub fn App() -> impl IntoView {
             <Meta name="twitter:description" content="CrawKatt Software Developer"/>
             <Meta name="twitter:image" content="https://crawkatt.dev/profile.png"/>
             <Stylesheet id="leptos" href="/pkg/portfolio.css" />
-            <Link rel="shortcut icon" type_="image/png" href="/favicon.ico" />
+            <Link rel="shortcut icon" type_="image/ico" href="/public/favicon.ico" />
             <Router>
                 <FlatRoutes fallback=|| "Page not found.">
                     <Route path=path!("") view=Home />
