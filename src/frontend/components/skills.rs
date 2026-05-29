@@ -9,12 +9,15 @@ pub fn Skills() -> impl IntoView {
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
                 <SkillCard name="Rust".to_string() />
                 <SkillCard name="Leptos".to_string() />
+                <SkillCard name="Iced".to_string() />
                 <SkillCard name="Forge".to_string() />
                 <SkillCard name="Fabric".to_string() />
                 <SkillCard name="SurrealDB".to_string() />
                 <SkillCard name="TailwindCSS".to_string() />
                 <SkillCard name="Java".to_string() />
+                <SkillCard name="Kotlin".to_string() />
                 <SkillCard name="C#".to_string() />
+                <SkillCard name="Linux".to_string() />
             </div>
         </section>
     }

@@ -29,6 +29,14 @@ projects-leafy-title = Leafy
 projects-leafy-description = Bot de Discord hecho en Rust
 projects-leafy-dashboard-title = Leafy Dashboard
 projects-leafy-dashboard-description = Dashboard Web hecha en Leptos, Actix y SurrealDB para configurar a Leafy
+projects-leafy-mc-launcher = Leafy MC Launcher
+projects-leafy-mc-launcher-description = Launcher personalizado de Minecraft hecho en Rust usando Iced-rs
+projects-simplest-hammers-title = Simplest Hammers Refabricated
+projects-simplest-hammers-description = Port para Fabric del mod Simplest Hammers
+projects-subtitle-mod-title = Subtitle+
+projects-subtitle-mod-description = Un mod de Minecraft que te permite mostrar subtítulos y mensajes personalizados directamente en la pantalla, perfecto para crear experiencias inmersivas.
+projects-conditional-barriers-title= Conditional Barriers
+projects-conditional-barriers-description = Un Mod de Minecraft que añade barreras que solo permiten el paso a ciertas entidades, basándose en condiciones configurables.
 
 # Contact Form
 contact-title = Contáctame

@@ -31,6 +31,34 @@ pub fn Projects() -> impl IntoView {
                     demo="#".to_string()
                     source_code="https://github.com/CrawKatt/leafy_dashboard".to_string()
                 />
+                <ProjectCard
+                    title=move_tr!("projects-leafy-mc-launcher")
+                    description=move_tr!("projects-leafy-mc-launcher-description")
+                    image="/public/leafy.png".to_string()
+                    demo="#".to_string()
+                    source_code="https://github.com/CrawKatt/LeafyMCLauncher".to_string()
+                />
+                <ProjectCard
+                    title=move_tr!("projects-simplest-hammers-title")
+                    description=move_tr!("projects-simplest-hammers-description")
+                    image="/public/simplest-hammers.webp".to_string()
+                    demo="#".to_string()
+                    source_code="https://github.com/CrawKatt/Simplest-Hammers".to_string()
+                />
+                <ProjectCard
+                    title=move_tr!("projects-subtitle-mod-title")
+                    description=move_tr!("projects-subtitle-mod-description")
+                    image="/public/subtitle.png".to_string()
+                    demo="https://modrinth.com/mod/subtitle".to_string()
+                    source_code="#".to_string()
+                />
+                <ProjectCard
+                    title=move_tr!("projects-conditional-barriers-title")
+                    description=move_tr!("projects-conditional-barriers-description")
+                    image="/public/subtitle.png".to_string()
+                    demo="https://modrinth.com/mod/conditional-barriers".to_string()
+                    source_code="https://github.com/CrawKatt/ConditionalBarriers".to_string()
+                />
             </div>
         </section>
     }
