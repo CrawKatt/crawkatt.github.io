@@ -1,61 +1,106 @@
-# Header
-header-about = Acerca de
-header-projects = Proyectos
-header-skills = Habilidades
-header-contact = Contacto
-header-contributions = Contribuciones
-header-terms = Términos y Condiciones
+# Accesibilidad
+a11y-theme = Cambiar entre tema claro y oscuro
+a11y-language = Idioma
 
 # Hero
-hero-profile-alt = Perfil
-hero-subtitle = Minecraft Modder & Desarrollador Rust
-hero-contact = Contáctame
-hero-projects = Ver Proyectos
+hero-proof = descargas en Modrinth
 
-# Project Card
-source-code = Código Fuente
+# Proyectos
+proj-downloads = descargas
+proj-source = Código
+proj-warfare = Port a Fabric de Superb Warfare: nuevas armas, armaduras y mecánicas de combate.
+proj-subtitle = Subtítulos y mensajes personalizados en pantalla para eventos, mapas de historia y partidas inmersivas.
+proj-starships = Addon de Superb Warfare ReFabricated inspirado en Dedsafío 4: una nave de despegue vertical y, con Ad Astra, piloto automático hasta el planeta que elijas.
+proj-hammers = Port a Fabric de Simplest Hammers: martillos equilibrados que minan un área de 3×3.
+proj-barriers = Bloques barrera que dejan pasar a jugadores o entidades según reglas configurables o una API.
 
-# About
-about-title = Sobre Mí
-about-image-alt = Sobre mí
-about-intro = Poseo una sólida formación técnica en desarrollo de software, iniciada a través del autoaprendizaje mediante el estudio de documentación especializada, la participación activa en foros técnicos, comunidades en línea y el seguimiento de cursos avanzados. Esta base me ha permitido desarrollar un enfoque autónomo, analítico y orientado a la resolución de problemas complejos.
-about-education = Complementé esta formación finalizando estudios técnicos en Programación y Análisis de Sistemas, consolidando mis conocimientos en entornos académicos y profesionales. A lo largo de mi trayectoria, he participado activamente en comunidades de desarrollo, fomentando el intercambio de conocimientos y colaborando en la formación técnica de otros desarrolladores.
+# Contacto
+contact-title = ¿Tienes un mod en mente?
+contact-text = Un mod, un port a Fabric, un bot o una herramienta en Rust. Abre el huevo del dragón, cuéntame qué quieres construir y te respondo por Discord.
+contact-open = Escríbeme
+contact-elsewhere = También estoy en
+form-name = Nombre
+form-name-placeholder = Cómo te llamas
+form-discord = Usuario de Discord
+form-discord-placeholder = tu_usuario
+form-message = Mensaje
+form-message-placeholder = Cuéntame sobre tu proyecto…
+form-terms = Acepto los
+form-terms-link = términos y condiciones
+form-submit = Enviar mensaje
+form-sending = Enviando…
+form-sent = Mensaje enviado. ¡Gracias! Te responderé pronto.
+form-error = No se pudo enviar el mensaje. Inténtalo de nuevo o escríbeme por Discord.
+form-missing = Completa todos los campos y acepta los términos.
 
-# Projects
-projects-title = Mis Proyectos
-projects-meica-title = Meica Mod
-projects-meica-description = Mod de Minecraft inspirado en la Vtuber Meica05
-projects-leafy-title = Leafy
-projects-leafy-description = Bot de Discord hecho en Rust
-projects-leafy-dashboard-title = Leafy Dashboard
-projects-leafy-dashboard-description = Dashboard Web hecha en Leptos, Actix y SurrealDB para configurar a Leafy
-projects-leafy-mc-launcher = Leafy MC Launcher
-projects-leafy-mc-launcher-description = Launcher personalizado de Minecraft hecho en Rust usando Iced-rs
-projects-simplest-hammers-title = Simplest Hammers Refabricated
-projects-simplest-hammers-description = Port para Fabric del mod Simplest Hammers
-projects-subtitle-mod-title = Subtitle+
-projects-subtitle-mod-description = Un mod de Minecraft que te permite mostrar subtítulos y mensajes personalizados directamente en la pantalla, perfecto para crear experiencias inmersivas.
-projects-conditional-barriers-title= Conditional Barriers
-projects-conditional-barriers-description = Un Mod de Minecraft que añade barreras que solo permiten el paso a ciertas entidades, basándose en condiciones configurables.
+# Pie de página
+foot-made = Hecho con Rust y Leptos.
+foot-rights = © 2026 CrawKatt.
 
-# Contact Form
-contact-title = Contáctame
-contact-form-title = Envíe un Mensaje
-contact-form-description = Llene el formulario a continuación y me pondré en contacto con usted lo antes posible.
-contact-form-name-label = Nombre
-contact-form-name-placeholder = Tu nombre
-contact-form-email-label = Email
-contact-form-email-placeholder = Tu email
-contact-form-message-label = Mensaje
-contact-form-message-placeholder = Tu mensaje
-contact-form-terms-agree = Acepto los
-contact-form-terms-link = Términos y Condiciones
-contact-form-submit = Enviar Mensaje
-contact-form-terms-error = Debe aceptar los términos y condiciones.
+# Contribuciones
+oss-title = Proyectos y colaboraciones
+oss-intro = Minijuegos y mods que programé para los eventos de Crown Studio, y colaboraciones en proyectos de la comunidad.
+oss-team = En el equipo
+oss-view-project = Ver en Modrinth
+oss-repo = Repositorio
+oss-downloads = descargas
+crown-dev = Desarrollador
+crown-event = Evento
+crown-mod = Mod del estudio
+crown-studio = Programé minijuegos y mods para los eventos del estudio, como Operation Springfield, Squid Crown Games y La Caja Navideña.
+crown-springfield = Hice el juego de las cervezas y el de la dona: TNT Tag y Colas Locas, con temática de Los Simpsons.
+crown-road = Hice el juego de crafteo, el de parkour y el del Water Drop.
+crown-core = Mod de utilidades y herramientas para los eventos del estudio.
+crown-squid = Modifiqué el bloque de slime para que funcione como trampolín y agregué una trompeta con sonido global para los guardias.
+crown-xmas = Hice el juego final del maletín, al estilo Among Us, y el mod de la pantalla de instrucciones.
+oss-immersive = Port a Forge como parte del equipo del mod (rol: Forge Porter).
 
-# Footer
-site-copyright = © 2025 CrawKatt. Todos los derechos reservados.
-terms-footer = Términos y Condiciones.
+# Página no encontrada
+notfound-title = Este chunk no ha cargado.
+notfound-text = La página que buscas no existe o se movió.
+notfound-back = Volver al inicio
+notfound-scene = Las Far Lands: capas de piedra y césped apiladas hasta el cielo, con túneles largos entre ellas, al final de una llanura.
+
+# Viaje por biomas (prototipo)
+trip-title = Hago mods para Minecraft.
+trip-lede = Soy CrawKatt. Creo y porteo mods para Fabric, Forge y NeoForge, y también hago software en Rust.
+trip-cta-mods = Ver mis mods
+trip-cta-contact = Cuéntame tu idea
+trip-scene-plains = El personaje de CrawKatt, frente a una casa de madera, mira las llanuras.
+cave-title = Mods publicados
+cave-lede = Cinco mods en Modrinth y CurseForge, con más de 50k descargas entre todos. Abre un marco para ver cada uno.
+mod-close = Cerrar
+mod-tags = Plataformas y lenguajes
+mod-video = Video de demostración
+deep-hint = Abre un libro para ver cada uno; el principal está en la mesa de encantamientos.
+nether-title = Comisiones
+nether-lede = Tres planes de comisión, de lo más sencillo a lo más complejo. Abre un cofre para ver cada uno; los precios son de referencia y el final depende del proyecto.
+plan-quartz = Plan Cuarzo
+plan-quartz-price = Desde 25 USD
+plan-quartz-summary = Básico: para ideas sencillas, contenido nuevo sin mecánicas propias.
+plan-quartz-1 = Ítems, bloques y herramientas con sus texturas y recetas
+plan-quartz-2 = Comidas, armaduras o encantamientos sencillos
+plan-quartz-3 = Una ronda de cambios
+plan-quartz-4 = Entrega estimada: alrededor de una semana
+plan-gold = Plan Oro
+plan-gold-price = Desde 80 USD
+plan-gold-summary = Intermedio: mecánicas propias más elaboradas, pero acotadas.
+plan-gold-1 = Todo lo del Plan Cuarzo
+plan-gold-2 = Bloques con funciones, interfaces (GUI) y configuración
+plan-gold-3 = Mobs o entidades con comportamiento sencillo
+plan-gold-4 = Dos rondas de cambios; entrega estimada de dos a tres semanas
+plan-netherite = Plan Netherita
+plan-netherite-price = Desde 200 USD
+plan-netherite-summary = Avanzado: sistemas grandes y complejos.
+plan-netherite-1 = Todo lo del Plan Oro
+plan-netherite-2 = Sistemas completos, minijuegos y mods para eventos multijugador
+plan-netherite-3 = Modelos y animaciones a medida, red cliente-servidor y compatibilidad con otros mods
+plan-netherite-4 = Rondas de cambios y plazo acordados según el proyecto
+plan-versions = Minecraft 1.21.1 o 1.20.1 · Fabric, Forge o NeoForge
+plan-cta = Hablemos de tu proyecto
+end-scene = El End: pilares de obsidiana a lo lejos, plantas coral, varas del End y el huevo del dragón sobre un pedestal.
+
+terms-label = Legal
 
 # Terms and Conditions
 terms-title = Términos y Condiciones

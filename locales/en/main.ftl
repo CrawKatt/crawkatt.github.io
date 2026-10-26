@@ -1,62 +1,106 @@
-# Header
-header-about = About
-header-projects = Projects
-header-skills = Skills
-header-contact = Contact
-header-contributions = Contributions
-header-terms = Terms and Conditions
+# Accessibility
+a11y-theme = Toggle light and dark theme
+a11y-language = Language
 
 # Hero
-hero-profile-alt = Profile
-hero-subtitle = Minecraft Modder & Rust Developer
-hero-contact = Contact Me
-hero-projects = View Projects
-
-# Project Card
-source-code = Source Code
-
-# About
-about-title = About Me
-about-image-alt = About me
-about-intro = I possess a strong technical background in software development, initiated through self-learning by studying specialized documentation, actively participating in technical forums and online communities, and completing advanced courses. This foundation has allowed me to develop an autonomous, analytical, and problem-solving-oriented approach to complex issues.
-about-education = I complemented this training by completing technical studies in Programming and Systems Analysis, consolidating my knowledge in academic and professional environments. Throughout my career, I have actively participated in development communities, fostering the exchange of knowledge and collaborating in the technical training of other developers.
+hero-proof = downloads on Modrinth
 
 # Projects
-projects-title = My Projects
-projects-meica-title = Meica Mod
-projects-meica-description = Minecraft mod inspired by the Vtuber Meica05
-projects-leafy-title = Leafy
-projects-leafy-description = Discord bot built with Rust
-projects-leafy-dashboard-title = Leafy Dashboard
-projects-leafy-dashboard-description = Web Dashboard built with Leptos, Actix and SurrealDB to configure Leafy
-projects-leafy-mc-launcher = Leafy MC Launcher
-projects-leafy-mc-launcher-description = Custom Minecraft launcher built with Rust and Iced-rs
-projects-simplest-hammers-title = Simplest Hammers Refabricated
-projects-simplest-hammers-description = Fabric port of the Simplest Hammers mod
-projects-subtitle-mod-title = Subtitle+
-projects-subtitle-mod-description = A Minecraft mod that lets you display custom subtitles and messages directly on the screen, perfect for creating immersive experiences.
-projects-conditional-barriers-title= Conditional Barriers
-projects-conditional-barriers-description = A Minecraft mod that adds barriers that only allow certain entities to pass through, based on configurable conditions.
+proj-downloads = downloads
+proj-source = Source
+proj-warfare = Fabric port of Superb Warfare: new weapons, armor and combat mechanics.
+proj-subtitle = Custom on-screen subtitles and messages for events, story maps and immersive gameplay.
+proj-starships = A Superb Warfare ReFabricated addon inspired by Dedsafío 4: a vertical-takeoff starship and, with Ad Astra, an autopilot to the planet you choose.
+proj-hammers = Fabric port of Simplest Hammers: balanced hammers that mine a 3×3 area.
+proj-barriers = Barrier blocks that let players or entities through based on configurable rules or an API.
 
-
-# Contact Form
-contact-title= Contact Me
-contact-form-title = Send a Message
-contact-form-description = Fill out the form below and I'll get back to you as soon as possible.
-contact-form-name-label = Name
-contact-form-name-placeholder = Your name
-contact-form-email-label = Email
-contact-form-email-placeholder = Your email
-contact-form-message-label = Message
-contact-form-message-placeholder = Your message
-contact-form-terms-agree = I agree with the
-contact-form-terms-link = Terms and Conditions
-contact-form-submit = Send Message
-contact-form-terms-error = You must accept the terms and conditions.
+# Contact
+contact-title = Got a mod in mind?
+contact-text = A mod, a Fabric port, a bot or a Rust tool. Open the dragon egg, tell me what you want to build and I'll reply on Discord.
+contact-open = Write to me
+contact-elsewhere = You can also find me on
+form-name = Name
+form-name-placeholder = What should I call you
+form-discord = Discord username
+form-discord-placeholder = your_username
+form-message = Message
+form-message-placeholder = Tell me about your project…
+form-terms = I agree to the
+form-terms-link = terms and conditions
+form-submit = Send message
+form-sending = Sending…
+form-sent = Message sent. Thanks! I'll get back to you soon.
+form-error = The message couldn't be sent. Please try again or message me on Discord.
+form-missing = Fill in every field and accept the terms.
 
 # Footer
-site-copyright = © 2025 CrawKatt. All rights reserved.
-terms-footer = Terms and Conditions.
+foot-made = Made with Rust and Leptos.
+foot-rights = © 2026 CrawKatt.
+
+# Contributions
+oss-title = Projects and collaborations
+oss-intro = Minigames and mods I programmed for Crown Studio's events, and collaborations on community projects.
+oss-team = Team member
+oss-view-project = View on Modrinth
+oss-repo = Repository
+oss-downloads = downloads
+crown-dev = Developer
+crown-event = Event
+crown-mod = Studio mod
+crown-studio = I programmed minigames and mods for the studio's events, such as Operation Springfield, Squid Crown Games and La Caja Navideña.
+crown-springfield = I made the beer game and the donut game: TNT Tag and Colas Locas, themed on The Simpsons.
+crown-road = I made the crafting game, the parkour game and the Water Drop game.
+crown-core = A mod of utilities and tools for the studio's events.
+crown-squid = I changed the slime block to work as a trampoline and added a trumpet with a global sound for the guards.
+crown-xmas = I made the final briefcase game, Among Us style, and the instructions screen mod.
+oss-immersive = Forge port, as part of the mod's team (role: Forge Porter).
+
+# Not found
+notfound-title = This chunk didn't load.
+notfound-text = The page you're looking for doesn't exist or has moved.
+notfound-back = Back to home
+notfound-scene = The Far Lands: layers of stone and grass stacked up to the sky, with long tunnels between them, at the end of a plain.
+
+# Biome journey
+trip-title = I make Minecraft mods.
+trip-lede = I'm CrawKatt. I create and port mods for Fabric, Forge and NeoForge, and I also write software in Rust.
+trip-cta-mods = See my mods
+trip-cta-contact = Tell me your idea
+trip-scene-plains = CrawKatt's character stands in front of a wooden house, looking out over the plains.
+cave-title = Published mods
+cave-lede = Five mods on Modrinth and CurseForge, with 50k+ downloads between them. Open a frame to see each one.
+mod-close = Close
+mod-tags = Loaders and languages
+mod-video = Demo video
+deep-hint = Open a book to see each one; the main one lies on the enchanting table.
+nether-title = Commissions
+nether-lede = Three commission plans, from the simplest to the most complex. Open a chest to see each one; prices are a reference and the final one depends on the project.
+plan-quartz = Quartz Plan
+plan-quartz-price = From 25 USD
+plan-quartz-summary = Basic: for simple ideas, new content without mechanics of its own.
+plan-quartz-1 = Items, blocks and tools with their textures and recipes
+plan-quartz-2 = Simple foods, armor or enchantments
+plan-quartz-3 = One round of changes
+plan-quartz-4 = Estimated delivery: about a week
+plan-gold = Gold Plan
+plan-gold-price = From 80 USD
+plan-gold-summary = Intermediate: more elaborate mechanics of its own, but contained.
+plan-gold-1 = Everything in the Quartz Plan
+plan-gold-2 = Blocks with functions, interfaces (GUIs) and configuration
+plan-gold-3 = Mobs or entities with simple behavior
+plan-gold-4 = Two rounds of changes; estimated delivery in two to three weeks
+plan-netherite = Netherite Plan
+plan-netherite-price = From 200 USD
+plan-netherite-summary = Advanced: large, complex systems.
+plan-netherite-1 = Everything in the Gold Plan
+plan-netherite-2 = Complete systems, minigames and mods for multiplayer events
+plan-netherite-3 = Custom models and animations, client-server networking and compatibility with other mods
+plan-netherite-4 = Rounds of changes and timeline agreed per project
+plan-versions = Minecraft 1.21.1 or 1.20.1 · Fabric, Forge or NeoForge
+plan-cta = Let's talk about your project
+end-scene = The End: obsidian pillars far off, chorus plants, end rods and the dragon egg on a pedestal.
+
+terms-label = Legal
 
 # Terms and Conditions
 terms-title = Terms and Conditions

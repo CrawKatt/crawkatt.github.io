@@ -1,65 +1,86 @@
-use leptos::prelude::*;
-use leptos_fluent::move_tr;
-use crate::frontend::components::ProjectCard;
+pub enum Meta {
+    Mod(&'static str, &'static str),
+}
 
-#[component]
-pub fn Projects() -> impl IntoView {
-    view! {
-        <section id="projects" class="py-12 md:py-16 scroll-mt-20">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">
-                {move_tr!("projects-title")}
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                <ProjectCard
-                    title=move_tr!("projects-meica-title")
-                    description=move_tr!("projects-meica-description")
-                    image="/public/meica_mod.png".to_string()
-                    demo="https://www.curseforge.com/minecraft/mc-mods/meica-mod".to_string()
-                    source_code="https://github.com/CrawKatt/meica_mod".to_string()
-                />
-                <ProjectCard
-                    title=move_tr!("projects-leafy-title")
-                    description=move_tr!("projects-leafy-description")
-                    image="/public/leafy.png".to_string()
-                    demo="#".to_string()
-                    source_code="https://github.com/CrawKatt/leafy".to_string()
-                />
-                <ProjectCard
-                    title=move_tr!("projects-leafy-dashboard-title")
-                    description=move_tr!("projects-leafy-dashboard-description")
-                    image="/public/leafy.png".to_string()
-                    demo="#".to_string()
-                    source_code="https://github.com/CrawKatt/leafy_dashboard".to_string()
-                />
-                <ProjectCard
-                    title=move_tr!("projects-leafy-mc-launcher")
-                    description=move_tr!("projects-leafy-mc-launcher-description")
-                    image="/public/leafy.png".to_string()
-                    demo="#".to_string()
-                    source_code="https://github.com/CrawKatt/LeafyMCLauncher".to_string()
-                />
-                <ProjectCard
-                    title=move_tr!("projects-simplest-hammers-title")
-                    description=move_tr!("projects-simplest-hammers-description")
-                    image="/public/simplest-hammers.webp".to_string()
-                    demo="#".to_string()
-                    source_code="https://github.com/CrawKatt/Simplest-Hammers".to_string()
-                />
-                <ProjectCard
-                    title=move_tr!("projects-subtitle-mod-title")
-                    description=move_tr!("projects-subtitle-mod-description")
-                    image="/public/subtitle.png".to_string()
-                    demo="https://modrinth.com/mod/subtitle".to_string()
-                    source_code="#".to_string()
-                />
-                <ProjectCard
-                    title=move_tr!("projects-conditional-barriers-title")
-                    description=move_tr!("projects-conditional-barriers-description")
-                    image="/public/subtitle.png".to_string()
-                    demo="https://modrinth.com/mod/conditional-barriers".to_string()
-                    source_code="https://github.com/CrawKatt/ConditionalBarriers".to_string()
-                />
-            </div>
-        </section>
+pub struct Project {
+    pub name: &'static str,
+    pub icon: Option<&'static str>,
+    pub desc: &'static str,
+    pub meta: Meta,
+    pub tags: &'static [&'static str],
+    pub link: Option<(&'static str, &'static str)>,
+    pub source: Option<&'static str>,
+    pub video: Option<&'static str>,
+}
+
+impl Project {
+    pub fn initials(&self) -> String {
+        self.name
+            .split_whitespace()
+            .take(2)
+            .filter_map(|word| word.chars().next())
+            .collect()
     }
 }
+
+pub static MODS: [Project; 5] = [
+    Project {
+        name: "Subtitle+",
+        icon: Some("/public/subtitle-icon.png"),
+        desc: "proj-subtitle",
+        meta: Meta::Mod("23k+", "1.20.5-1.21.1"),
+        tags: &["Fabric", "Forge"],
+        link: Some(("Modrinth", "https://modrinth.com/mod/subtitle")),
+        source: None,
+        video: None,
+    },
+    Project {
+        name: "Superb Warfare ReFabricated",
+        icon: Some("/public/superb_warfare.png"),
+        desc: "proj-warfare",
+        meta: Meta::Mod("23k+", "1.20.1, 1.21.1"),
+        tags: &["Fabric", "Kotlin"],
+        link: Some((
+            "Modrinth",
+            "https://modrinth.com/mod/superb-warfare-refabricated",
+        )),
+        source: Some("https://github.com/CrawKatt/SuperbWarfareReFabricated"),
+        video: None,
+    },
+    Project {
+        name: "Simplest Hammers Refabricated",
+        icon: Some("/public/simplest-hammers.webp"),
+        desc: "proj-hammers",
+        meta: Meta::Mod("2.7k+", "1.21.1-1.21.3"),
+        tags: &["Fabric", "Quilt", "Java"],
+        link: Some((
+            "Modrinth",
+            "https://modrinth.com/mod/simplest-hammers-refabricated",
+        )),
+        source: Some("https://github.com/CrawKatt/Simplest-Hammers"),
+        video: None,
+    },
+    Project {
+        name: "[SBW] Dedsafío Starships",
+        icon: Some("/public/dedsafio-starships.webp"),
+        desc: "proj-starships",
+        meta: Meta::Mod("40+", "1.21.1"),
+        tags: &["Fabric"],
+        link: Some((
+            "CurseForge",
+            "https://www.curseforge.com/minecraft/mc-mods/sbw-dedsafio-starships",
+        )),
+        source: None,
+        video: None,
+    },
+    Project {
+        name: "Conditional Barriers",
+        icon: None,
+        desc: "proj-barriers",
+        meta: Meta::Mod("1.4k+", "1.21.1"),
+        tags: &["Fabric", "Java"],
+        link: Some(("Modrinth", "https://modrinth.com/mod/conditional-barriers")),
+        source: Some("https://github.com/CrawKatt/ConditionalBarriers"),
+        video: None,
+    },
+];
