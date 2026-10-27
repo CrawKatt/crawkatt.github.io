@@ -1,12 +1,11 @@
+use crate::frontend::pages::{Journey, NotFound, TermsAndConditions};
 use leptos::prelude::*;
 use leptos_fluent::leptos_fluent;
 use leptos_meta::*;
 use leptos_router::{
     components::{FlatRoutes, Route, Router},
-    path
+    path,
 };
-use crate::frontend::pages::{Home, OSSContributions, TermsAndConditions};
-use crate::frontend::context::provide_theme_context;
 
 #[component]
 fn I18nProvider(children: Children) -> impl IntoView {
@@ -41,27 +40,46 @@ fn I18nProvider(children: Children) -> impl IntoView {
 #[component]
 pub fn App() -> impl IntoView {
     provide_meta_context();
-    provide_theme_context();
 
     view! {
         <I18nProvider>
-            <Meta property="og:type" content="website"/>
-            <Meta property="og:title" content="CrawKatt - Portfolio"/>
-            <Meta property="og:description" content="CrawKatt Software Developer"/>
-            <Meta property="og:image" content="https://crawkatt.dev/public/profile.png"/>
-            <Meta property="og:url" content="https://crawkatt.dev/"/>
+            <Title text="CrawKatt · Minecraft modder & Rust developer" />
+            <Meta
+                name="description"
+                content="Mods de Minecraft con Fabric y Forge, y software en Rust: bots de Discord, paneles web y launchers."
+            />
+            <Meta name="theme-color" content="#1a1c1e" />
+            <Meta property="og:type" content="website" />
+            <Meta property="og:title" content="CrawKatt - Portfolio" />
+            <Meta property="og:description" content="Minecraft modder & Rust developer" />
+            <Meta property="og:image" content="https://crawkatt.dev/public/profile.png" />
+            <Meta property="og:url" content="https://crawkatt.dev/" />
 
-            <Meta name="twitter:card" content="summary_large_image"/>
-            <Meta name="twitter:title" content="CrawKatt - Portfolio"/>
-            <Meta name="twitter:description" content="CrawKatt Software Developer"/>
-            <Meta name="twitter:image" content="https://crawkatt.dev/public/profile.png"/>
+            <Meta name="twitter:card" content="summary_large_image" />
+            <Meta name="twitter:title" content="CrawKatt - Portfolio" />
+            <Meta name="twitter:description" content="Minecraft modder & Rust developer" />
+            <Meta name="twitter:image" content="https://crawkatt.dev/public/profile.png" />
+            <Link
+                rel="preload"
+                href="/public/fonts/schibsted-grotesk-latin-wght-normal.woff2"
+                as_="font"
+                type_="font/woff2"
+                crossorigin="anonymous"
+            />
+            <Link
+                rel="preload"
+                href="/public/fonts/pixelify-sans-latin-wght-normal.woff2"
+                as_="font"
+                type_="font/woff2"
+                crossorigin="anonymous"
+            />
             <Stylesheet id="leptos" href="/pkg/portfolio.css" />
             <Link rel="shortcut icon" type_="image/ico" href="/public/favicon.ico" />
             <Router>
-                <FlatRoutes fallback=|| "Page not found.">
-                    <Route path=path!("") view=Home />
-                    <Route path=path!("/terms-and-conditions") view=TermsAndConditions/>
-                    <Route path=path!("/contributions") view=OSSContributions/>
+                <FlatRoutes fallback=NotFound>
+                    <Route path=path!("") view=Journey />
+                    <Route path=path!("/terms-and-conditions") view=TermsAndConditions />
+                    <Route path=path!("/*any") view=NotFound />
                 </FlatRoutes>
             </Router>
         </I18nProvider>
@@ -69,7 +87,6 @@ pub fn App() -> impl IntoView {
 }
 
 #[server(InitialLanguage, "/api")]
-pub async fn initial_language_server_function(
-) -> Result<Option<String>, ServerFnError> {
+pub async fn initial_language_server_function() -> Result<Option<String>, ServerFnError> {
     Ok(Some("es".to_string()))
 }

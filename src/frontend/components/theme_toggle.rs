@@ -1,56 +1,33 @@
-use leptos::prelude::*;
 use crate::frontend::components::{MoonIcon, SunIcon};
-use crate::frontend::context::use_theme_context;
+use leptos::prelude::*;
+use leptos_fluent::move_tr;
 
 #[component]
 pub fn ThemeToggle() -> impl IntoView {
-    let theme_ctx = use_theme_context();
-    let is_dark = theme_ctx.is_dark;
-
-    Effect::new(move |_| {
-        let window = window();
-        let document = window.document().unwrap();
-        let html = document.document_element().unwrap();
-
-        let stored_theme = window.local_storage().unwrap().unwrap().get_item("theme").unwrap();
-        let prefers_dark = window.match_media("(prefers-color-scheme: dark)").unwrap().unwrap().matches();
-
-        let dark_mode = stored_theme.as_deref() == Some("dark") || (stored_theme.is_none() && prefers_dark);
-        is_dark.set(dark_mode);
-
-        if dark_mode {
-            html.class_list().add_1("dark").unwrap();
-        } else {
-            html.class_list().remove_1("dark").unwrap();
-        }
-    });
-
-    let toggle_theme = move |_| {
-        let window = window();
-        let document = window.document().unwrap();
-        let html = document.document_element().unwrap();
-
-        let new_theme = if is_dark.get() { "light" } else { "dark" };
-        window.local_storage().unwrap().unwrap().set_item("theme", new_theme).unwrap();
-
-        is_dark.update(|dark| *dark = !*dark);
-
-        if is_dark.get() {
-            html.class_list().add_1("dark").unwrap();
-        } else {
-            html.class_list().remove_1("dark").unwrap();
+    let toggle = move |_| {
+        let Some(html) = document().document_element() else {
+            return;
+        };
+        let dark = !html.class_list().contains("dark");
+        let _ = html.class_list().toggle_with_force("dark", dark);
+        if let Ok(Some(storage)) = window().local_storage() {
+            let _ = storage.set_item("theme", if dark { "dark" } else { "light" });
         }
     };
 
     view! {
         <button
-            class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 w-10 border border-input bg-background hover:bg-accent hover:text-accent-foreground"
-            on:click=toggle_theme
-            aria-label="Toggle theme"
+            type="button"
+            class="grid place-items-center w-11 h-11 border-2 transition-colors border-line-strong text-fg-muted hover:border-fg hover:text-fg"
+            on:click=toggle
+            aria-label=move_tr!("a11y-theme")
         >
-            <Show when=move || is_dark.get() fallback=|| view! { <SunIcon /> }>
+            <span class="dark:hidden">
                 <MoonIcon />
-            </Show>
+            </span>
+            <span class="hidden dark:block">
+                <SunIcon />
+            </span>
         </button>
     }
 }
